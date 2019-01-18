@@ -11,18 +11,23 @@ const options = [
     leftIcon: 'ion-android-arrow-dropleft-circle',
   },
   {
+    key: 'overview',
+    label: 'overview',
+    leftIcon: 'ion-android-arrow-dropleft-circle',
+  },
+  {
     key: 'friends',
     label: 'sidebar.friends',
     leftIcon: 'ion-ios-people',
   },
   {
     key: 'settings',
-    label: 'sidebar.settings ',
+    label: 'sidebar.settings',
     leftIcon: 'ion-ios-settings',
   },
   {
     key: 'help',
-    label: 'sidebar.help ',
+    label: 'sidebar.help',
     leftIcon: 'ion-ios-help-outline',
   },
  

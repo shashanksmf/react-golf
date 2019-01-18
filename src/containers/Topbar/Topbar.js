@@ -20,12 +20,12 @@ import { Icon, Row, Col } from 'antd';
 import Buttons from '../../components/uielements/button';
 import ContentHolder from '../../components/utility/contentHolder';
 import { rtl } from '../../settings/withDirection';
-import * as TableViews from './tableViews/';
+import * as TableViews from '../Tables/antTables/tableViews/';
 import fakeData from '../Tables/fakeData';
 import { tableinfos } from '../Tables/antTables/configs';
 const Button = Buttons;
 const DropdownButton = DropdownButtons;
-let Component = TableViews.SimpleView;
+let ComponentT = TableViews.SimpleView;
 const dataList = new fakeData(10);
 
 const { Header } = Layout;

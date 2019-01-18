@@ -9,6 +9,14 @@ const routes = [
     component: asyncComponent(() => import('../Widgets/index.js')),
   },
   {
+    path: 'overview',
+    component: asyncComponent(() => import('../Custom/overview.js')),
+  },
+  {
+   path: 'rounds',
+   component: asyncComponent(() => import('../Rounds/rounds.js')),
+  },
+  {
     path: 'inbox',
     component: asyncComponent(() => import('../Mail')),
   },
