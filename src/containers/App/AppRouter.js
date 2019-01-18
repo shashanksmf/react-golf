@@ -10,7 +10,7 @@ const routes = [
   },
   {
     path: 'overview',
-    component: asyncComponent(() => import('../Custom/overview.js')),
+    component: asyncComponent(() => import('../Overview/overview.js')),
   },
   {
    path: 'rounds',
