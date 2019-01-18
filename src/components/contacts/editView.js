@@ -7,6 +7,8 @@ import { ContactCardWrapper } from './contactCard.style';
 import './upload.css';
 
 function beforeUpload(file) {
+
+  
   const isJPG = file.type === 'image/jpeg';
   if (!isJPG) {
     notification('error', 'You can only upload JPG file!', '');

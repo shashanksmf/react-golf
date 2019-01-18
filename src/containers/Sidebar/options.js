@@ -21,6 +21,11 @@ const options = [
     leftIcon: 'ion-ios-people',
   },
   {
+    key: 'profile',
+    label: 'profile',
+    leftIcon: 'ion-ios-people',
+  },
+  {
     key: 'settings',
     label: 'sidebar.settings',
     leftIcon: 'ion-ios-settings',

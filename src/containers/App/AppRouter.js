@@ -17,6 +17,10 @@ const routes = [
    component: asyncComponent(() => import('../Rounds/rounds.js')),
   },
   {
+    path: 'profile',
+    component: asyncComponent(() => import('../Profile/profile.js')),
+   },
+  {
     path: 'inbox',
     component: asyncComponent(() => import('../Mail')),
   },
