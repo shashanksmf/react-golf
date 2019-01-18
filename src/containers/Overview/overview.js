@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import Box from '../../components/utility/box';
 import { Radar } from 'react-chartjs-2';
 import { data } from './radarConfig';
-import {tableData} from './data.js'
-
+import tableData  from './data.js'
+console.log("table",tableData)
 export default class Overview extends Component {
   render() {
     return (
@@ -12,8 +12,8 @@ export default class Overview extends Component {
       <div>
 
       <Table
-        columns={tableData.columns[0]}
-        dataSource={tableData.dataSource[0]}
+        columns={tableData.columns}
+        dataSource={tableData.dataSource}
         pagination={false}
       />
 
