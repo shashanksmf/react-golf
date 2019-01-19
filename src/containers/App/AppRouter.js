@@ -13,6 +13,15 @@ const routes = [
     component: asyncComponent(() => import('../Overview/overview.js')),
   },
   {
+    path: 'putting',
+    component: asyncComponent(() => import('../Putting/Putting.js')),
+  },
+  {
+    path: 'trends',
+    component: asyncComponent(() => import('../Trends/trendsHome.js')),
+  },
+
+  {
     path: 'rounds',
     component: asyncComponent(() => import('../Rounds/rounds.js')),
   },

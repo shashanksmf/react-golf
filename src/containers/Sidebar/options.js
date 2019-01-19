@@ -30,19 +30,29 @@ const options = [
     label: 'sidebar.settings',
     leftIcon: 'ion-ios-settings',
   },
-  
+
   {
     key: 'help',
     label: 'sidebar.help',
     leftIcon: 'ion-ios-help-outline',
   },
- 
+  {
+    key: 'trends',
+    label: 'trends',
+    leftIcon: 'ion-ios-help-outline',
+  },
+  {
+    key: 'putting',
+    label: 'putting',
+    leftIcon: 'ion-ios-help-outline',
+  },
+
   // {
   //   key: 'gridLayout',
   //   label: 'sidebar.boxOptions',
   //   leftIcon: 'ion-cube'
   // },
- 
-  
+
+
 ];
 export default options;
