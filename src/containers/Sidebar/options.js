@@ -12,7 +12,7 @@ const options = [
   },
   {
     key: 'overview',
-    label: 'overview',
+    label: 'Overview',
     leftIcon: 'ion-android-arrow-dropleft-circle',
   },
   {
@@ -22,8 +22,13 @@ const options = [
   },
   {
     key: 'profile',
-    label: 'profile',
+    label: 'Profile',
     leftIcon: 'ion-ios-people',
+  },
+  {
+    key: 'putting',
+    label: 'Putting',
+    leftIcon: 'ion-ios-settings',
   },
   {
     key: 'settings',
