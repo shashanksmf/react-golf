@@ -10,16 +10,16 @@ const routes = [
   },
   {
     path: 'overview',
-    component: asyncComponent(() => import('../Custom/overview.js')),
+    component: asyncComponent(() => import('../Overview/overview.js')),
   },
   {
-   path: 'rounds',
-   component: asyncComponent(() => import('../Rounds/rounds.js')),
+    path: 'rounds',
+    component: asyncComponent(() => import('../Rounds/rounds.js')),
   },
   {
     path: 'profile',
     component: asyncComponent(() => import('../Profile/profile.js')),
-   },
+  },
   {
     path: 'inbox',
     component: asyncComponent(() => import('../Mail')),
