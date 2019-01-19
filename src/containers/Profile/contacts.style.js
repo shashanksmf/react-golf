@@ -191,7 +191,7 @@ const WDContactsWrapper = styled.div`
       display: inline-block;
     }
 
-    .editcontact-field input[type="text"] {
+    .editcontact-field input[type="text"], select{
       font-size: 14px;
       font-weight: 400;
       color: #979797;

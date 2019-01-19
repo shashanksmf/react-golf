@@ -14,6 +14,7 @@ import CardWrapper, { Box, StatusTag } from './invoice.style';
 import TableWrapper from '../Tables/antTables/antTable.style';
 import { rtl } from '../../settings/withDirection';
 import { Icon, Row, Col } from 'antd';
+import tableData from './data.js';
 
 import Dropdown, {
   DropdownButtons,
@@ -83,57 +84,7 @@ class Invoices extends Component {
       width: '15%',
       render: text => <span>{text}</span>,
     },
-    // {
-    //   title: 'Status',
-    //   dataIndex: 'orderStatus',
-    //   rowKey: 'orderStatus',
-    //   width: '13%',
-    //   render: (text, orderStatus) => {
-    //     let className;
-    //     if (text === 'shipped' || text === 'Shipped' || text === 'SHIPPED') {
-    //       className = 'shipped';
-    //     } else if (
-    //       text === 'delivered' ||
-    //       text === 'Delivered' ||
-    //       text === 'DELIVERED'
-    //     ) {
-    //       className = 'delivered';
-    //     } else if (
-    //       text === 'pending' ||
-    //       text === 'Pending' ||
-    //       text === 'PENDING'
-    //     ) {
-    //       className = 'pending';
-    //     }
-    //     return <StatusTag className={className}>{text}</StatusTag>;
-    //   },
-    // },
-    // {
-    //   title: '',
-    //   dataIndex: 'view',
-    //   rowKey: 'view',
-    //   width: '10%',
-    //   render: (text, invoice) => (
-    //     <div className="isoInvoiceBtnView">
-    //       <Link to={`${this.props.match.path}/${invoice.id}`}>
-    //         <Button color="primary" className="invoiceViewBtn">
-    //           View
-    //         </Button>
-    //       </Link>{' '}
-    //       <Button
-    //         className="invoiceDltBtn"
-    //         // icon="delete"
-    //         onClick={() => {
-    //           notification('error', '1 invoice deleted');
-    //           this.props.deleteInvoice([invoice.key]);
-    //           this.setState({ selected: [] });
-    //         }}
-    //       >
-    //         <i className="ion-android-delete" />
-    //       </Button>
-    //     </div>
-    //   ),
-    // },
+    
   ];
 
   columns_mature = [
@@ -165,64 +116,7 @@ class Invoices extends Component {
       width: '31%',
       render: text => <span>{text}</span>,
     },
-    // {
-    //   title: '',
-    //   dataIndex: 'totalCost',
-    //   rowKey: 'totalCost',
-    //   width: '15%',
-    //   render: text => <span>{text}</span>,
-    // },
-    // {
-    //   title: 'Status',
-    //   dataIndex: 'orderStatus',
-    //   rowKey: 'orderStatus',
-    //   width: '13%',
-    //   render: (text, orderStatus) => {
-    //     let className;
-    //     if (text === 'shipped' || text === 'Shipped' || text === 'SHIPPED') {
-    //       className = 'shipped';
-    //     } else if (
-    //       text === 'delivered' ||
-    //       text === 'Delivered' ||
-    //       text === 'DELIVERED'
-    //     ) {
-    //       className = 'delivered';
-    //     } else if (
-    //       text === 'pending' ||
-    //       text === 'Pending' ||
-    //       text === 'PENDING'
-    //     ) {
-    //       className = 'pending';
-    //     }
-    //     return <StatusTag className={className}>{text}</StatusTag>;
-    //   },
-    // },
-    // {
-    //   title: '',
-    //   dataIndex: 'view',
-    //   rowKey: 'view',
-    //   width: '10%',
-    //   render: (text, invoice) => (
-    //     <div className="isoInvoiceBtnView">
-    //       <Link to={`${this.props.match.path}/${invoice.id}`}>
-    //         <Button color="primary" className="invoiceViewBtn">
-    //           View
-    //         </Button>
-    //       </Link>{' '}
-    //       <Button
-    //         className="invoiceDltBtn"
-    //         // icon="delete"
-    //         onClick={() => {
-    //           notification('error', '1 invoice deleted');
-    //           this.props.deleteInvoice([invoice.key]);
-    //           this.setState({ selected: [] });
-    //         }}
-    //       >
-    //         <i className="ion-android-delete" />
-    //       </Button>
-    //     </div>
-    //   ),
-    // },
+    
   ];
 
   
@@ -322,8 +216,8 @@ class Invoices extends Component {
                 <Scrollbars style={{ width: '100%' }}>
                   <TableWrapper
                     rowSelection={rowSelection}
-                    dataSource={invoices}
-                    columns={this.columns}
+                    dataSource={tableData.dataSource.table1}
+                    columns={tableData.columns.table1}
                     
                     pagination={false}
                     className="invoiceListTable"
@@ -331,8 +225,8 @@ class Invoices extends Component {
                        
                   <TableWrapper
                     rowSelection={rowSelection}
-                    dataSource={invoices}
-                    columns={this.columns_mature}
+                    dataSource={tableData.dataSource.table2}
+                    columns={tableData.columns.table2}
                     
                     pagination={false}
                     className="invoiceListTable"

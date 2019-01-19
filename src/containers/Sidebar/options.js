@@ -30,6 +30,7 @@ const options = [
     label: 'sidebar.settings',
     leftIcon: 'ion-ios-settings',
   },
+  
   {
     key: 'help',
     label: 'sidebar.help',

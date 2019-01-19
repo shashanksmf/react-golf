@@ -46,7 +46,6 @@ class Profile extends Component {
         firstName:"asdasd",
         lastName:"aaa",
         email:"abc@gmail.com",
-
     };
     return (
       <ContactsWrapper
