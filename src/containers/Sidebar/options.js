@@ -12,7 +12,7 @@ const options = [
   },
   {
     key: 'overview',
-    label: 'Overview',
+    label: 'overview',
     leftIcon: 'ion-android-arrow-dropleft-circle',
   },
   {
@@ -22,13 +22,8 @@ const options = [
   },
   {
     key: 'profile',
-    label: 'Profile',
+    label: 'profile',
     leftIcon: 'ion-ios-people',
-  },
-  {
-    key: 'putting',
-    label: 'Putting',
-    leftIcon: 'ion-ios-settings',
   },
   {
     key: 'settings',
@@ -40,11 +35,6 @@ const options = [
     label: 'sidebar.help',
     leftIcon: 'ion-ios-help-outline',
   },
-   {
-    key: 'trends',
-    label: 'trends',
-    leftIcon: 'ion-ios-help-outline',
-  }
  
   // {
   //   key: 'gridLayout',
