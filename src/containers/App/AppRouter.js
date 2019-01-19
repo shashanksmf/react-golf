@@ -20,6 +20,10 @@ const routes = [
     path: 'profile',
     component: asyncComponent(() => import('../Profile/profile.js')),
    },
+    {
+    path: 'trends',
+    component: asyncComponent(() => import('../Trends/trendsHome.js')),
+   },
   {
     path: 'inbox',
     component: asyncComponent(() => import('../Mail')),

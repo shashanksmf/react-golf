@@ -35,6 +35,11 @@ const options = [
     label: 'sidebar.help',
     leftIcon: 'ion-ios-help-outline',
   },
+   {
+    key: 'trends',
+    label: 'trends',
+    leftIcon: 'ion-ios-help-outline',
+  }
  
   // {
   //   key: 'gridLayout',
