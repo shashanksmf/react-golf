@@ -41,6 +41,11 @@ const options = [
     label: 'putting',
     leftIcon: 'ion-ios-help-outline',
   },
+  {
+    key: 'strokes',
+    label: 'Strokes Gained',
+    leftIcon: 'ion-android-arrow-dropleft-circle',
+  },
 
   // {
   //   key: 'gridLayout',

@@ -26,6 +26,10 @@ const routes = [
     component: asyncComponent(() => import('../Profile/profile.js')),
   },
   {
+    path: 'strokes',
+    component: asyncComponent(() => import('../StrokesGained/strokesHome.js')),
+  },
+  {
     path: 'inbox',
     component: asyncComponent(() => import('../Mail')),
   },

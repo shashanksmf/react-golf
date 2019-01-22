@@ -42,7 +42,7 @@ export default class Putting extends Component {
 	        columns={tableData.columns.table1}
 	        dataSource={tableData.dataSource.table1}
 	        pagination={false}
-	      />	    
+	      />
 	    </div>
       </Box>
 
