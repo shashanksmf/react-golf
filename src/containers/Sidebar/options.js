@@ -11,11 +11,6 @@ const options = [
     leftIcon: 'ion-android-arrow-dropleft-circle',
   },
   {
-    key: 'overview',
-    label: 'overview',
-    leftIcon: 'ion-android-arrow-dropleft-circle',
-  },
-  {
     key: 'friends',
     label: 'sidebar.friends',
     leftIcon: 'ion-ios-people',

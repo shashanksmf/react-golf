@@ -6,10 +6,6 @@ import customRoutes from '../../customApp/router';
 const routes = [
   {
     path: '',
-    component: asyncComponent(() => import('../Widgets/index.js')),
-  },
-  {
-    path: 'overview',
     component: asyncComponent(() => import('../Overview/overview.js')),
   },
   {
