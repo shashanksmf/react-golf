@@ -297,6 +297,16 @@ const routes = [
     path: 'settings',
     component: asyncComponent(() => import('../settingTwo/index.js')),
   },
+  {
+    path: 'Community',
+    component: asyncComponent(() => import('../FirestoreCRUD/Article/index.js')),
+  },
+  {
+    path: 'communityFriends',
+    component: asyncComponent(() => import('../FirestoreCRUD/Article/friends.js')),
+  },
+ 
+ 
   ...customRoutes,
 ];
 

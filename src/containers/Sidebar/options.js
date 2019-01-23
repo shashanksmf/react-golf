@@ -47,12 +47,11 @@ const options = [
     leftIcon: 'ion-android-arrow-dropleft-circle',
   },
 
-  // {
-  //   key: 'gridLayout',
-  //   label: 'sidebar.boxOptions',
-  //   leftIcon: 'ion-cube'
-  // },
-
-
+  {
+    key: 'community',
+    label: 'community',
+    leftIcon: 'ion-ios-people',
+  }
+  
 ];
 export default options;
