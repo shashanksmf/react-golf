@@ -9,6 +9,8 @@ import authAction from '../../redux/auth/actions';
 import appActions from '../../redux/app/actions';
 import Sidebar from '../Sidebar/Sidebar';
 import Topbar from '../Topbar/Topbar';
+import Sidebar_Admin from '../Sidebar_Admin/Sidebar';
+import Topbar_Admin from '../Topbar_Admin/Topbar';
 import ThemeSwitcher from '../../containers/ThemeSwitcher';
 import AppRouter from './AppRouter';
 import { siteConfig } from '../../settings';
@@ -22,7 +24,9 @@ const { logout } = authAction;
 const { toggleAll } = appActions;
 export class App extends Component {
   render() {
+    console.log("props appjs",this.props);
     const { url } = this.props.match;
+    const location=this.props.location.pathname;
     const { locale, selectedTheme, height } = this.props;
     const currentAppLocale = AppLocale[locale];
     const appHeight = window.innerHeight;
@@ -45,9 +49,10 @@ export class App extends Component {
                     }
                   />
                 </Debounce>
-                <Topbar url={url} />
+                <Topbar url={url} isAdmin={this.props.isAdmin}>
+                </Topbar>
                 <Layout style={{ flexDirection: 'row', overflowX: 'hidden' }}>
-                  <Sidebar url={url} />
+                {this.props.isAdmin?<Sidebar_Admin url={url} />:<Sidebar url={url} />}
                   <Layout
                     className="isoContentMainLayout"
                     style={{
@@ -91,7 +96,8 @@ export default connect(
     auth: state.Auth,
     locale: state.LanguageSwitcher.language.locale,
     selectedTheme: state.ThemeSwitcher.changeThemes.themeName,
-    height: state.App.height
+    height: state.App.height,
+    isAdmin:JSON.parse(localStorage.getItem('isAdmin')) || state.auth.isAdmin
   }),
   { logout, toggleAll }
 )(App);

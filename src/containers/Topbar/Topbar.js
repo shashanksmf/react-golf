@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Layout } from "antd";
+import Box from '../../components/utility/box';
+import Tabs, { TabPane } from '../../components/uielements/tabs';
+import IntlMessages from '../../components/utility/intlMessages';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import appActions from "../../redux/app/actions";
+import { withRouter  } from 'react-router';
 import TopbarNotification from "./topbarNotification";
 import TopbarMessage from "./topbarMessage";
 import TopbarSearch from "./topbarSearch";
@@ -23,6 +28,7 @@ import { rtl } from '../../settings/withDirection';
 import * as TableViews from '../Tables/antTables/tableViews/';
 import fakeData from '../Tables/fakeData';
 import { tableinfos } from '../Tables/antTables/configs';
+import Adminspiderrankings from './adminSpiderRankingsMenu';
 const Button = Buttons;
 const DropdownButton = DropdownButtons;
 let ComponentT = TableViews.SimpleView;
@@ -31,12 +37,31 @@ const dataList = new fakeData(10);
 const { Header } = Layout;
 const { toggleCollapsed } = appActions;
 
+function callback(key) {}
+
 class Topbar extends Component {
   handleMenuClickToLink = e => {
     message.info('Click on menu item.');
   };
 
+
+
+  getHeaderMenu() {
+    const {isAdmin = false,location} = this.props;
+    console.log("hert menu header caleld",this.props);
+    // return (<div>shashank</div>);
+    return isAdmin &&
+        (location.pathname.includes('/dashboard/adminspiderrankings')) ?
+        (<Adminspiderrankings redirect={this.redirect}></Adminspiderrankings>) :  (isAdmin ? null :(this.menuClicked))
+  }
+
+  redirect = (params) => {
+      console.log("params",params)
+        this.props.history.push(params)
+  }
+
   render() {
+
     const { toggleCollapsed, url, customizedTheme, locale } = this.props;
     const collapsed = this.props.collapsed && !this.props.openDrawer;
     const styling = {
@@ -52,6 +77,36 @@ class Topbar extends Component {
         <MenuItem key="3">3d menu item</MenuItem>
       </DropdownMenu>
     );
+
+    const client=(
+      <>
+      <div>
+        <label>Base:</label>
+        <Dropdown overlay={menuClicked}>
+          <Button
+            style={{
+              margin: rtl === 'rtl' ? '0 8px 0 0' : '0 0 0 8px',
+            }}
+          >
+            Drop Down Menu1 <Icon type="down" />
+          </Button>
+        </Dropdown>
+      </div>
+
+      <div>
+        <label>Compare To:</label>
+        <Dropdown overlay={menuClicked}>
+          <Button
+            style={{
+              margin: rtl === 'rtl' ? '0 8px 0 0' : '0 0 0 8px',
+            }}
+          >
+            Drop Down Menu2 <Icon type="down" />
+          </Button>
+        </Dropdown>
+      </div>
+      </>
+    )
 
 
     return (
@@ -72,31 +127,7 @@ class Topbar extends Component {
             />
           </div>
 
-          <div>
-            <label>Base:</label>
-            <Dropdown overlay={menuClicked}>
-              <Button
-                style={{
-                  margin: rtl === 'rtl' ? '0 8px 0 0' : '0 0 0 8px',
-                }}
-              >
-                Drop Down Menu1 <Icon type="down" />
-              </Button>
-            </Dropdown>
-          </div>
-
-          <div>
-            <label>Compare To:</label>
-            <Dropdown overlay={menuClicked}>
-              <Button
-                style={{
-                  margin: rtl === 'rtl' ? '0 8px 0 0' : '0 0 0 8px',
-                }}
-              >
-                Drop Down Menu2 <Icon type="down" />
-              </Button>
-            </Dropdown>
-          </div>
+          {this.getHeaderMenu()}
 
           <ul className="isoRight">
             <li
@@ -133,4 +164,4 @@ export default connect(
     customizedTheme: state.ThemeSwitcher.topbarTheme
   }),
   { toggleCollapsed }
-)(Topbar);
+)(withRouter(Topbar));

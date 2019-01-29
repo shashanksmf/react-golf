@@ -11,7 +11,8 @@ export function* loginRequest() {
       yield put({
         type: actions.LOGIN_SUCCESS,
         token: 'secret token',
-        profile: 'Profile'
+        profile: 'Profile',
+        isAdmin: true
       });
     } else {
       yield put({ type: actions.LOGIN_ERROR });

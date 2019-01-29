@@ -305,8 +305,33 @@ const routes = [
     path: 'communityFriends',
     component: asyncComponent(() => import('../FirestoreCRUD/Article/friends.js')),
   },
- 
- 
+  {
+    path: 'admincommunity',
+    component: asyncComponent(() => import('../Community_Admin/CommunityHome.js')),
+  },
+  {
+    path: 'adminspiderrankings',
+    component: asyncComponent(() => import('../Spider_Rankings/SpiderHome.js')),
+  },
+  {
+    path: 'adminsettings',
+    component: asyncComponent(() => import('../Trends/trendsHome.js')),
+  },
+  {
+    path: 'adminhelp',
+    component: asyncComponent(() => import('../Trends/trendsHome.js')),
+  },
+  {
+    path: 'adminspiderrankings/scoring',
+    component: asyncComponent(() => import('../Spider_Rankings/scoring.js')),
+  },
+  {
+    path: 'adminspiderrankings/tff',
+    component: asyncComponent(() => import('../Spider_Rankings/tff.js')),
+  },
+
+
+
   ...customRoutes,
 ];
 
