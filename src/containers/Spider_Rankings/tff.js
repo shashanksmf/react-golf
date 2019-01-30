@@ -2,26 +2,74 @@ import React, { Component } from "react";
 import Box from '../../components/utility/box';
 import './spider.css'
 
+
+import DATA from './data.js';
+import TableWrapper from '../Tables/antTables/antTable.style';
+import LayoutContentWrapper from '../../components/utility/layoutWrapper.js';
+import ContentHolder from '../../components/utility/contentHolder';
+import { Row, Col, Icon } from 'antd';
+
 export default class Tff extends Component {
   render() {
+    const {columns, dataSource} = DATA;
+    const rowSelection = {
+      onChange: (selectedRowKeys, selectedRows) => {},
+    };
     return (
-      <Box title="">
-        <h1>List of Tables</h1>
-        <ul>
-          <li>Fairways %</li>
-          <li>Miss left</li>
-          <li>Miss right</li>
-          <li>Average Distance</li>
-        </ul>
+      <LayoutContentWrapper>
+      <Box>
+        <ContentHolder style={{ marginTop: 0, overflow: 'hidden' }}>
+         
+      	<Row >
+        <Col md={24} sm={8} xl={8} xs={24}>
+          <TableWrapper
+            rowKey="key"
+            rowSelection={rowSelection}
+            columns={columns}
+            bordered={true}
+            dataSource={dataSource}
+            loading={this.props.isLoading}
+            className="isoSimpleTable"
+            pagination={{
+              // defaultPageSize: 1,
+              hideOnSinglePage: true,
+              total: dataSource.length,
+              showTotal: (total, range) => {
+                return `Showing ${range[0]}-${range[1]} of ${
+                  dataSource.length
+                } Results`;
+              },
+            }}
+          />
+          </Col>
 
-        <br/>
+          <Col md={8} sm={8} xl={8} xs={8}></Col>
 
-        <ul>
-          <li>Average Score fairway hit</li>
-          <li>Average score fairway missed</li>
-          <li>Well hit -> miss fairway</li>
-        </ul>
+          <Col md={24} sm={8} xl={8} xs={24}>
+          <TableWrapper
+            rowKey="key"
+            rowSelection={rowSelection}
+            columns={columns}
+            bordered={true}
+            dataSource={dataSource}
+            loading={this.props.isLoading}
+            className="isoSimpleTable"
+            pagination={{
+              // defaultPageSize: 1,
+              hideOnSinglePage: true,
+              total: dataSource.length,
+              showTotal: (total, range) => {
+                return `Showing ${range[0]}-${range[1]} of ${
+                  dataSource.length
+                } Results`;
+              },
+            }}
+          />
+          </Col>
+          </Row>
+        </ContentHolder>
       </Box>
+    </LayoutContentWrapper>
     );
   }
 }

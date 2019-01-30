@@ -2,39 +2,73 @@ import React, { Component } from "react";
 import Box from '../../components/utility/box';
 import './spider.css'
 
+import DATA from './data.js';
+import TableWrapper from '../Tables/antTables/antTable.style';
+import LayoutContentWrapper from '../../components/utility/layoutWrapper.js';
+import ContentHolder from '../../components/utility/contentHolder';
+import { Row, Col, Icon } from 'antd';
+
 export default class Putting extends Component {
   render() {
+    const {columns, dataSource} = DATA;
+    const rowSelection = {
+      onChange: (selectedRowKeys, selectedRows) => {},
+    };
     return (
-      <Box title="">
-        <h1>List of Tables</h1>
-        <ul>
-          <li>Average putt</li>
-          <li>Putts/hole</li>
-          <li>Putts/hole GIR</li>
-          <li>Putts/hole non GIR</li>
-        </ul>
+      <LayoutContentWrapper>
+      <Box>
+        <ContentHolder style={{ marginTop: 0, overflow: 'hidden' }}>
+         
+      	<Row >
+        <Col md={24} sm={8} xl={8} xs={24}>
+          <TableWrapper
+            rowKey="key"
+            rowSelection={rowSelection}
+            columns={columns}
+            bordered={true}
+            dataSource={dataSource}
+            loading={this.props.isLoading}
+            className="isoSimpleTable"
+            pagination={{
+              // defaultPageSize: 1,
+              hideOnSinglePage: true,
+              total: dataSource.length,
+              showTotal: (total, range) => {
+                return `Showing ${range[0]}-${range[1]} of ${
+                  dataSource.length
+                } Results`;
+              },
+            }}
+          />
+          </Col>
 
-        <br/>
+          <Col md={8} sm={8} xl={8} xs={8}></Col>
 
-        <ul>
-          <li>Average 1 Putt</li>
-          <li>Average 3 putts +</li>
-          <li>Birdie conversion %</li>
-        </ul>
-
-        <br/>
-
-        <ul>
-          <li>Dist. First putt (from grs)</li>
-          <li>Avr. Meter putts made</li>
-        </ul>
-
-        <br/>
-
-        <ul>
-          <li>1 putts per distance (all distance)</li>
-        </ul>
+          <Col md={24} sm={8} xl={8} xs={24}>
+          <TableWrapper
+            rowKey="key"
+            rowSelection={rowSelection}
+            columns={columns}
+            bordered={true}
+            dataSource={dataSource}
+            loading={this.props.isLoading}
+            className="isoSimpleTable"
+            pagination={{
+              // defaultPageSize: 1,
+              hideOnSinglePage: true,
+              total: dataSource.length,
+              showTotal: (total, range) => {
+                return `Showing ${range[0]}-${range[1]} of ${
+                  dataSource.length
+                } Results`;
+              },
+            }}
+          />
+          </Col>
+          </Row>
+        </ContentHolder>
       </Box>
+    </LayoutContentWrapper>
     );
   }
 }
