@@ -18,6 +18,14 @@ import DevReducers from '../customApp/redux/reducers';
 import Articles from './articles/reducers';
 import Investors from './investors/reducers';
 import Overview from './overview/reducers';
+import Community from './community/reducers';
+import StrokesGained from './StrokesGained/reducers';
+import Putting from './Putting/reducers';
+import Trends from './Trends/reducers';
+import Setting from './settingTwo/reducers';
+import Profile from './Profile/saga';
+import Friends from './Friends/saga';
+import Rounds from './Rounds/saga';
 
 export default {
   Auth,
@@ -39,5 +47,13 @@ export default {
   Articles,
   Investors,
   Overview,
+  Community,
+  StrokesGained,
+  Putting,
+  Trends,
+  Setting,
+  Profile,
+  Friends,
+  Rounds,
   ...DevReducers,
 };

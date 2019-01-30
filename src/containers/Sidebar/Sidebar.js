@@ -9,7 +9,8 @@ import IntlMessages from "../../components/utility/intlMessages";
 import SidebarWrapper from "./sidebar.style";
 import appActions from "../../redux/app/actions";
 import Logo from "../../components/utility/logo";
-import options from "./options";
+import allOptions from "./allOptions";
+
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -27,14 +28,14 @@ const stripTrailingSlash = str => {
   }
   return str;
 };
-console.log("options",options);
+console.log("options");
 var sidebarOptions;
 class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.onOpenChange = this.onOpenChange.bind(this);
-    this.props.isAdmin?sidebarOptions=options[1]:sidebarOptions=options[0]
+    this.props.isAdmin?sidebarOptions= allOptions.coachOptions:sidebarOptions= allOptions.options
   }
   handleClick(e) {
     this.props.changeCurrent([e.key]);

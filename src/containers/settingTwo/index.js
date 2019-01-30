@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+
 import { Link } from 'react-router-dom';
 import notification from '../../components/notification';
 // import Box from '../../components/utility/box';
@@ -24,7 +24,8 @@ import Dropdown, {
 } from '../../components/uielements/dropdown';
 import message from '../../components/uielements/message';
 
-
+import { connect } from 'react-redux';
+import actions from './../../redux/settingTwo/actions';
 
 class Invoices extends Component {
 
@@ -40,10 +41,12 @@ class Invoices extends Component {
     selected: [],
   };
   componentDidMount() {
-    const { initialInvoices, initData } = this.props;
-    if (!initialInvoices) {
-      initData();
-    }
+
+    this.props.getDataSetting();
+    // const { initialInvoices, initData } = this.props;
+    // if (!initialInvoices) {
+    //   initData();
+    // }
   }
 
 
@@ -123,6 +126,19 @@ class Invoices extends Component {
 
   getnewInvoiceId = () => new Date().getTime();
   render() {
+
+    const {
+      Overview:
+      {
+        recollectionData:
+        {
+          data_recollection,
+        
+        } = []
+      } = []
+    } = this.props;
+
+    console.log("setting redux data", data_recollection)
 
     const dicClicked = (
       <DropdownMenu onClick={this.handleMenuClickToLink}>
@@ -209,7 +225,7 @@ class Invoices extends Component {
           </div>
 
           <CardWrapper title="Invoices">
-            {invoices.length === 0 ? (
+            {/* {invoices.length === 0 ? (
               <HelperText text="No Invoices" />
             ) : (
               <div className="isoInvoiceTable">
@@ -233,7 +249,7 @@ class Invoices extends Component {
                   />
                 </Scrollbars>
               </div>
-            )}
+            )} */}
           </CardWrapper>
         </Box>
       </LayoutWrapper>
@@ -241,12 +257,21 @@ class Invoices extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    ...state.Invoices,
-  };
-}
-export default connect(
-  mapStateToProps,
-  invoiceActions
-)(Invoices);
+
+const mapStateToProps = state => {
+  return state;
+};
+
+
+export default connect(mapStateToProps, actions)(Invoices);
+
+
+// function mapStateToProps(state) {
+//   return {
+//     ...state.Invoices,
+//   };
+// }
+// export default connect(
+//   mapStateToProps,
+//   invoiceActions
+// )(Invoices);

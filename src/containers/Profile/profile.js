@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+
 import contactAction from "../../redux/contacts/actions";
 import { Layout, Icon } from "antd";
 import Button from "../../components/uielements/button";
@@ -12,7 +12,8 @@ import IntlMessages from "../../components/utility/intlMessages";
 import { ContactsWrapper } from "./contacts.style";
 import Scrollbar from "../../components/utility/customScrollBar.js";
 import EditProfile from "./editProfile";
-
+import { connect } from "react-redux";
+import actions from './../../redux/Profile/actions';
 const {
   changeContact,
   addContact,
@@ -24,8 +25,27 @@ const {
 const { Content } = Layout;
 class Profile extends Component {
 
+  componentDidMount() {
+    this.props.getDataProfile();
+  }
+
    
   render() {
+
+    const {
+      Overview:
+      {
+        recollectionData:
+        {
+          data_recollection,
+          
+        } = []
+      } = []
+    } = this.props;
+
+    console.log("redux profile data", data_recollection)
+
+
     const {
       contacts,
       seectedId,
@@ -48,13 +68,15 @@ class Profile extends Component {
         email:"abc@gmail.com",
     };
     return (
+
+
       <ContactsWrapper
         className="isomorphicContacts"
         style={{ background: "none" }}
       >
        
         <Layout className="isoContactBoxWrapper">
-          {selectedContact ? (
+          {/* {selectedContact ? (
             <Content className="isoContactBox">
               <div className="isoContactControl">
                 <Button type="button" onClick={onVIewChange}>
@@ -88,7 +110,7 @@ class Profile extends Component {
                 <IntlMessages id="contactlist.addNewContact" />
               </Button>
             </div>
-          )}
+          )} */}
         </Layout>
       </ContactsWrapper>
 
@@ -97,19 +119,26 @@ class Profile extends Component {
   }
 }
 
-function mapStateToProps(state) {
-    console.log("satte",state);
-  const { contacts, seectedId, editView } = state.Contacts;
-  return {
-    contacts,
-    seectedId,
-    editView
-  };
-}
-export default connect(mapStateToProps, {
-  changeContact,
-  addContact,
-  editContact,
-  deleteContact,
-  viewChange
-})(Profile);
+// function mapStateToProps(state) {
+//     console.log("satte",state);
+//   const { contacts, seectedId, editView } = state.Contacts;
+//   return {
+//     contacts,
+//     seectedId,
+//     editView
+//   };
+// }
+// export default connect(mapStateToProps, {
+//   changeContact,
+//   addContact,
+//   editContact,
+//   deleteContact,
+//   viewChange
+// })(Profile);
+
+const mapStateToProps = state => {
+  return state;
+};
+
+
+export default connect(mapStateToProps, actions)(Profile);

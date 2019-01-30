@@ -5,15 +5,35 @@ import FriendDt from "./friendsDt";
 import { Row, Col, Icon } from 'antd';
 import Box from '../../components/utility/box';
 import ContentHolder from '../../components/utility/contentHolder';
+import actions from './../../redux/Friends/actions';
 
-export default class extends Component {
-	state = {
+console.log("this action ", actions)
+
+ class Friends extends Component {
+	// state = {
 	
-		loading: false,
+	// 	loading: false,
 	
-	};
+	// };
+
+	componentDidMount() {
+    this.props.getDataFriends();
+  }
 	
 	render(){
+
+		 const {
+      Overview:
+      {
+        recollectionData:
+        {
+          data_recollection,
+      
+        } = []
+      } = []
+    } = this.props;
+
+    console.log("redux friends",  data_recollection,)
 		
     const gutter = 0;
 		// const antTable = AntTable.renderTable('sortView');
@@ -34,3 +54,9 @@ export default class extends Component {
 			);
 	}
 }
+const mapStateToProps = state => {
+  return state;
+};
+
+
+export default connect(mapStateToProps, actions)(Friends);

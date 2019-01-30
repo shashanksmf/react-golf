@@ -1,5 +1,6 @@
 import qs from 'qs';
 import options from '../containers/Sidebar/options';
+console.log("options",options)
 
 export function getInitData() {
   const initData = qs.parse(window.location.search.slice(1));

@@ -16,11 +16,22 @@ import Dropdown, {
 } from '../../components/uielements/dropdown';
 import { rtl } from '../../settings/withDirection';
 import Select, { SelectOption } from '../../components/uielements/select';
-export default class extends Component {
+
+
+import { connect } from "react-redux";
+import actions from './../../redux/Trends/actions';
+
+class Trends extends Component {
 	state={
 			firstGraphVal:"firstgraph",
 			secondGraphVal:"secondgraph",
 	}
+
+
+	componentDidMount() {
+		this.props.getDataTrends();
+	  }
+
 	handleFirstChange = e => {
 		this.setState({ firstGraphVal: e });
 		
@@ -30,6 +41,33 @@ export default class extends Component {
 		
 	};
 		render(){
+
+			const {
+				Overview:
+				{
+				  recollectionData:
+				  {
+					data_recollection,
+					
+				  } = []
+				} = []
+			  } = this.props;
+		  
+			  console.log("redux trends data", data_recollection)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			const firstGraphVal= this.state.firstGraphVal;
 			const secondGraphVal= this.state.secondGraphVal;
 			const gutter = 10;
@@ -112,3 +150,11 @@ export default class extends Component {
 			)
 		}
 }
+
+const mapStateToProps = state => {
+	return state;
+  };
+  
+  
+  export default connect(mapStateToProps, actions)(Trends);
+  

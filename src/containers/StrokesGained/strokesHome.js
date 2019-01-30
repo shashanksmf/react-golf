@@ -17,10 +17,17 @@ import Dropdown, {
 import Select, { SelectOption } from '../../components/uielements/select';
 import tableData  from './data.js'
 import * as configs from "./config";
-export default class extends Component {
+
+import { connect } from "react-redux";
+import actions from './../../redux/StrokesGained/actions';
+
+
+class StrokesGained extends Component {
   componentDidMount()
   {
-  	new FrappeChart(configs.barChart);
+		this.props.getDataStrokesGained();
+		new FrappeChart(configs.barChart);
+		
   }
 	state={
 		    index:0,
@@ -36,6 +43,22 @@ export default class extends Component {
   		new FrappeChart(configs.barChart);
 	};
 		render(){
+
+
+			const {
+				Overview:
+				{
+					recollectionData:
+					{
+						data_recollection
+				
+					} = []
+				} = []
+			} = this.props;
+	
+			console.log("this data from redux", data_recollection)
+	
+
 
 			const firstGraphVal= this.state.firstGraphVal;
 			const gutter = 10;
@@ -83,3 +106,10 @@ export default class extends Component {
           )
 		}
 }
+const mapStateToProps = state => {
+  return state;
+};
+
+
+export default connect(mapStateToProps, actions)(StrokesGained);
+

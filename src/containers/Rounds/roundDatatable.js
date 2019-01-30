@@ -7,6 +7,9 @@ import { makeData, Logo, Tips } from "./Utils";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 
+import actions from './../../redux/Rounds/actions';
+import { connect } from "react-redux";
+
 const rawData = makeData();
 
 const requestData = (pageSize, page, sorted, filtered) => {
@@ -50,7 +53,7 @@ const requestData = (pageSize, page, sorted, filtered) => {
   });
 };
 
-export default class RoundDT extends React.Component {
+class RoundDT extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -59,6 +62,10 @@ export default class RoundDT extends React.Component {
       loading: true
     };
     this.fetchData = this.fetchData.bind(this);
+  }
+
+  componentDidMount() {
+    this.props. getDataRounds();
   }
   fetchData(state, instance) {
     // Whenever the table model changes, or the user sorts or changes pages, this method gets called and passed the current table model.
@@ -80,6 +87,21 @@ export default class RoundDT extends React.Component {
     });
   }
   render() {
+
+    const {
+      Overview:
+      {
+        recollectionData:
+        {
+          data_recollection,
+          
+        } = []
+      } = []
+    } = this.props;
+
+    console.log("redux rounds data",  data_recollection,)
+
+
     const { data, pages, loading } = this.state;
     console.log({ data, pages, loading})
     return (
@@ -118,3 +140,9 @@ export default class RoundDT extends React.Component {
 }
 
 
+const mapStateToProps = state => {
+  return state;
+};
+
+
+export default connect(mapStateToProps, actions)(RoundDT);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import actions from '../../../redux/articles/actions';
+//import actions from '../../../redux/articles/actions';
 import Input, { Textarea } from '../../../components/uielements/input';
 import Select, {
   SelectOption as Option,
@@ -27,10 +27,22 @@ import {
 import clone from 'clone';
 import DATA from './data.js';
 
+import actions from '../../../redux/community/actions'
+
+
+
+// console.log("data comming from redux",actions);
+
 class Articles extends Component {
+
+  // componentDidMount() {
+  //   this.props.loadFromFireStore();
+  // }
+
   componentDidMount() {
-    this.props.loadFromFireStore();
+    this.props.getDataCommunity();
   }
+
   handleRecord = (actionName, article) => {
     if (article.key && actionName !== 'delete') actionName = 'update';
     this.props.saveIntoFireStore(article, actionName);
@@ -56,6 +68,19 @@ class Articles extends Component {
   };
 
   render() {
+
+    const {
+      Overview:
+      {
+        recollectionData:
+        {
+          data_recollection,
+     
+        } = []
+      } = []
+    } = this.props;
+
+
     const { modalActive, articles } = this.props;
     const { article } = clone(this.props);
     const {columns, dataSource} = DATA;
@@ -69,6 +94,7 @@ class Articles extends Component {
     const rowSelection = {
       onChange: (selectedRowKeys, selectedRows) => {},
     };
+    console.log("this is fake data",data_recollection)
 
    
     return (
@@ -116,9 +142,17 @@ class Articles extends Component {
   }
 }
 
-export default connect(
-  state => ({
-    ...state.Articles,
-  }),
-  actions
-)(Articles);
+const mapStateToProps = state => {
+  return state;
+};
+
+
+export default connect(mapStateToProps, actions)(Articles);
+
+
+// export default connect(
+//   state => ({
+//     ...state.Articles,
+//   }),
+//   actions
+// )(Articles);
