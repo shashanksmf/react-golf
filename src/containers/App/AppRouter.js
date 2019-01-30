@@ -357,6 +357,10 @@ const routes = [
     path: 'adminspiderrankings/wasted',
     component: asyncComponent(() => import('../Spider_Rankings/wasted.js')),
   },
+  {
+    path: 'admincommunity/newgroup',
+    component: asyncComponent(() => import('../Community_Admin/newGroup.js')),
+  },
 
 
 

@@ -1,7 +1,7 @@
-const tableData = {
+var tableData = {
 
   columns:{
-    "table1":[
+    "group":[
       {
         title: "Name of Group",
         dataIndex: "title",
@@ -48,11 +48,11 @@ const tableData = {
   },
 
   dataSource:{
-    "table1":[
+    "group":[
       {
         key: "1",
-        sname: "",
         title: "",
+        sname: "",
         view: "",
         egroup: "",
       },
