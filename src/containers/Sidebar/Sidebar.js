@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import clone from "clone";
 import { Link } from "react-router-dom";
 import { Layout } from "antd";
-import options from "./options";
 import Scrollbars from "../../components/utility/customScrollBar.js";
 import Menu from "../../components/uielements/menu";
 import IntlMessages from "../../components/utility/intlMessages";
 import SidebarWrapper from "./sidebar.style";
 import appActions from "../../redux/app/actions";
 import Logo from "../../components/utility/logo";
+import options from "./options";
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -27,12 +27,14 @@ const stripTrailingSlash = str => {
   }
   return str;
 };
-
+console.log("options",options);
+var sidebarOptions;
 class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.onOpenChange = this.onOpenChange.bind(this);
+    this.props.isAdmin?sidebarOptions=options[1]:sidebarOptions=options[0]
   }
   handleClick(e) {
     this.props.changeCurrent([e.key]);
@@ -160,11 +162,11 @@ class Sidebar extends Component {
               selectedKeys={app.current}
               onOpenChange={this.onOpenChange}
             >
-              {options.map(singleOption =>
+              {sidebarOptions.map(singleOption =>
                 this.getMenuItem({ submenuStyle, submenuColor, singleOption })
               )}
               {/* Demo Menu */}
-            
+
             </Menu>
           </Scrollbars>
         </Sider>

@@ -9,8 +9,8 @@ import authAction from '../../redux/auth/actions';
 import appActions from '../../redux/app/actions';
 import Sidebar from '../Sidebar/Sidebar';
 import Topbar from '../Topbar/Topbar';
-import Sidebar_Admin from '../Sidebar_Admin/Sidebar';
-import Topbar_Admin from '../Topbar_Admin/Topbar';
+// import Sidebar_Admin from '../Sidebar_Admin/Sidebar';
+// import Topbar_Admin from '../Topbar_Admin/Topbar';
 import ThemeSwitcher from '../../containers/ThemeSwitcher';
 import AppRouter from './AppRouter';
 import { siteConfig } from '../../settings';
@@ -52,7 +52,7 @@ export class App extends Component {
                 <Topbar url={url} isAdmin={this.props.isAdmin}>
                 </Topbar>
                 <Layout style={{ flexDirection: 'row', overflowX: 'hidden' }}>
-                {this.props.isAdmin?<Sidebar_Admin url={url} />:<Sidebar url={url} />}
+                <Sidebar url={url} isAdmin={this.props.isAdmin}/>
                   <Layout
                     className="isoContentMainLayout"
                     style={{

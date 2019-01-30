@@ -20,6 +20,14 @@ export default class Scoring extends Component {
           <li>Par 4 scoring</li>
           <li>Par 5 scoring</li>
         </ul>
+        <br/>
+        <ul>
+          <li>Front nine</li>
+          <li>Back nine</li>
+          <li>First 6</li>
+          <li>Middle 6</li>
+          <li>Last 6</li>
+        </ul>
       </Box>
     );
   }

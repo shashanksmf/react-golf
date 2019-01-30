@@ -329,6 +329,34 @@ const routes = [
     path: 'adminspiderrankings/tff',
     component: asyncComponent(() => import('../Spider_Rankings/tff.js')),
   },
+  {
+    path: 'adminspiderrankings/togreen',
+    component: asyncComponent(() => import('../Spider_Rankings/togreen.js')),
+  },
+  {
+    path: 'adminspiderrankings/grs',
+    component: asyncComponent(() => import('../Spider_Rankings/grs.js')),
+  },
+  {
+    path: 'adminspiderrankings/putting',
+    component: asyncComponent(() => import('../Spider_Rankings/putting.js')),
+  },
+  {
+    path: 'adminspiderrankings/sg',
+    component: asyncComponent(() => import('../Spider_Rankings/sg.js')),
+  },
+  {
+    path: 'adminspiderrankings/proximity',
+    component: asyncComponent(() => import('../Spider_Rankings/proximity.js')),
+  },
+  {
+    path: 'adminspiderrankings/impact',
+    component: asyncComponent(() => import('../Spider_Rankings/impact.js')),
+  },
+  {
+    path: 'adminspiderrankings/wasted',
+    component: asyncComponent(() => import('../Spider_Rankings/wasted.js')),
+  },
 
 
 
