@@ -97,7 +97,7 @@ export default connect(
     locale: state.LanguageSwitcher.language.locale,
     selectedTheme: state.ThemeSwitcher.changeThemes.themeName,
     height: state.App.height,
-    isAdmin:JSON.parse(localStorage.getItem('isAdmin')) || state.auth.isAdmin
+    isAdmin:state.Auth.isAdmin || false
   }),
   { logout, toggleAll }
 )(App);

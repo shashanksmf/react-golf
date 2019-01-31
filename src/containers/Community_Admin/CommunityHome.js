@@ -31,8 +31,8 @@ export default class CommunityHome extends Component {
         <div>
         <h2>Table 2- List of students : (community feature in the app)</h2>
   	      <Table
-  	        columns={tableData.columns.table2}
-  	        dataSource={tableData.dataSource.table2}
+  	        columns={tableData.columns.students}
+  	        dataSource={tableData.dataSource.students}
   	        pagination={false}
   	      />
   	    </div>

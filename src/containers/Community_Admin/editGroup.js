@@ -12,7 +12,7 @@ import ContentHolder from "../../components/utility/contentHolder";
 import { tableData } from './config';
 import './community.css'
 
-export default class newGroup extends Component {
+export default class editGroup extends Component {
   state={
     groupName:""
   }
@@ -27,35 +27,29 @@ export default class newGroup extends Component {
       console.log("groupName",this.state.groupName);
       var groupObj={
         title: this.state.groupName,
-        scount: "",
-        view: "/dashboard/admincommunity/viewgroup/"+this.state.groupName,
-        egroup: "/dashboard/admincommunity/editgroup/"+this.state.groupName,
+        sname: "",
+        view: "/dashboard/admincommunity/view/"+this.state.groupName,
+        egroup: "/dashboard/admincommunity/edit/"+this.state.groupName,
       }
       tableData.dataSource.group.push(groupObj)
       this.props.history.push('/dashboard/admincommunity')
   }
   render() {
+    const margin = {
+      margin: '50px'
+    };
     return (
       <Box>
-      <InputGroup size="large" style={{ marginBottom: '15px' }}>
-        <Col span="4">
-          <h3>Enter Group Name</h3>
-        </Col>
-        <Col span="8">
-          <Input defaultValue="" onChange={this.changeName}/>
-        </Col>
-        <Col span="6">
-          <Button type="primary" onClick={()=>this.newG()}>New Group +</Button>
-        </Col>
-      </InputGroup>
-      <div>
-        <h2>List of students</h2>
-        <Table
-          columns={tableData.columns.studentsgroup}
-          dataSource={tableData.dataSource.students}
-          pagination={false}
-        />      
-      </div>
+        <div>
+          <h2>List of students</h2>
+          <Table
+            columns={tableData.columns.studentsgroup}
+            dataSource={tableData.dataSource.students}
+            pagination={false}
+          />
+        </div>
+        <Button type="primary" style={margin} onClick={()=>this.props.history.push('/dashboard/admincommunity')}>Add to Group</Button>
+
       </Box>
     );
   }

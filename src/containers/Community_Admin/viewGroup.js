@@ -12,7 +12,7 @@ import ContentHolder from "../../components/utility/contentHolder";
 import { tableData } from './config';
 import './community.css'
 
-export default class newGroup extends Component {
+export default class viewGroup extends Component {
   state={
     groupName:""
   }
@@ -27,9 +27,9 @@ export default class newGroup extends Component {
       console.log("groupName",this.state.groupName);
       var groupObj={
         title: this.state.groupName,
-        scount: "",
-        view: "/dashboard/admincommunity/viewgroup/"+this.state.groupName,
-        egroup: "/dashboard/admincommunity/editgroup/"+this.state.groupName,
+        sname: "",
+        view: "/dashboard/admincommunity/view/"+this.state.groupName,
+        egroup: "/dashboard/admincommunity/edit/"+this.state.groupName,
       }
       tableData.dataSource.group.push(groupObj)
       this.props.history.push('/dashboard/admincommunity')
@@ -37,24 +37,13 @@ export default class newGroup extends Component {
   render() {
     return (
       <Box>
-      <InputGroup size="large" style={{ marginBottom: '15px' }}>
-        <Col span="4">
-          <h3>Enter Group Name</h3>
-        </Col>
-        <Col span="8">
-          <Input defaultValue="" onChange={this.changeName}/>
-        </Col>
-        <Col span="6">
-          <Button type="primary" onClick={()=>this.newG()}>New Group +</Button>
-        </Col>
-      </InputGroup>
       <div>
-        <h2>List of students</h2>
+      <h2>List of students</h2>
         <Table
-          columns={tableData.columns.studentsgroup}
+          columns={tableData.columns.students}
           dataSource={tableData.dataSource.students}
           pagination={false}
-        />      
+        />
       </div>
       </Box>
     );

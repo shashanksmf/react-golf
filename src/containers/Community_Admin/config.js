@@ -1,5 +1,10 @@
-var tableData = {
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Checkbox, {
+  CheckboxGroup
+} from '../../components/uielements/checkbox';
 
+var tableData = {
   columns:{
     "group":[
       {
@@ -8,41 +13,68 @@ var tableData = {
         key: "title"
       },
       {
-        title: "Students Name",
-        dataIndex: "sname",
-        key: "sname"
+        title: "Students Count",
+        dataIndex: "scount",
+        key: "scount"
       },
       {
         title: "View (link)",
         dataIndex: "view",
-        key: "view"
+        key: "view",
+        render: (text, record) => {
+          return (
+            <Link to={record.view}>View</Link>
+          );
+        }
       },
       {
         title: "Edit Group",
         dataIndex: "egroup",
-        key: "egroup"
+        key: "egroup",
+        render: (text, record) => {
+          return (
+            <Link to={record.egroup}>Edit</Link>
+          );
+        }
       },
     ],
-    "table2":[
+    "students":[
       {
         title: "Name/Firstname",
-        dataIndex: "title",
-        key: "title"
+        dataIndex: "name",
+        key: "name"
       },
       {
         title: "Handicap",
-        dataIndex: "sname",
-        key: "sname"
+        dataIndex: "handicap",
+        key: "handicap"
       },
       {
         title: "Scoring Average",
-        dataIndex: "view",
-        key: "view"
+        dataIndex: "scoring",
+        key: "scoring"
       },
       {
         title: "Rounds",
-        dataIndex: "egroup",
-        key: "egroup"
+        dataIndex: "rounds",
+        key: "rounds"
+      },
+    ],
+    "studentsgroup":[
+      {
+        title: "Name/Firstname",
+        dataIndex: "name",
+        key: "name"
+      },
+      {
+        title: "Group",
+        dataIndex: "groupname",
+        key: "groupname",
+        render: (text, record) => {
+          return (
+            <Checkbox></Checkbox>
+          );
+        }
       },
     ],
   },
@@ -51,19 +83,42 @@ var tableData = {
     "group":[
       {
         key: "1",
-        title: "",
-        sname: "",
-        view: "",
-        egroup: "",
+        title: "abcd",
+        scount: "2",
+        view: "/dashboard/admincommunity/viewgroup/abcd",
+        egroup: "/dashboard/admincommunity/editgroup/abcd",
       },
     ],
-    "table2":[
+    "students":[
       {
         key: "1",
-        sname: "",
-        title: "",
-        view: "",
-        egroup: "",
+        name: "qw",
+        handicap: "yes",
+        scoring: "10",
+        rounds: "1",
+        groupname:""
+      },
+      {
+        key: "",
+        name: "er",
+        handicap: "no",
+        scoring: "1",
+        rounds: "2",
+        groupname:""
+      },
+      {
+        name: "ty",
+        handicap: "no",
+        scoring: "4",
+        rounds: "5",
+        groupname:""
+      },
+      {
+        name: "ui",
+        handicap: "yes",
+        scoring: "7",
+        rounds: "8",
+        groupname:""
       },
     ],
   }

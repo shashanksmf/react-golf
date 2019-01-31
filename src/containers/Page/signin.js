@@ -17,8 +17,16 @@ const { clearMenu } = appAction;
 
 class SignIn extends Component {
   state = {
-    redirectToReferrer: false
+    redirectToReferrer: false,
+    uname:"",
+    password:""
   };
+  handleonChange=(Event)=>{
+    this.setState(
+      {
+      [Event.target.name]:Event.target.value
+    })
+  }
   componentWillReceiveProps(nextProps) {
     if (
       this.props.isLoggedIn !== nextProps.isLoggedIn &&
@@ -29,11 +37,13 @@ class SignIn extends Component {
   }
   handleLogin = () => {
     const { login, clearMenu } = this.props;
-    login();
+    const {uname,password} = this.state;
+    login({uname,password});
     clearMenu();
     this.props.history.push("/dashboard");
   };
   render() {
+    console.log("state",this.state);
     const from = { pathname: "/dashboard" };
     const { redirectToReferrer } = this.state;
 
@@ -52,11 +62,11 @@ class SignIn extends Component {
 
             <div className="isoSignInForm">
               <div className="isoInputWrapper">
-                <Input size="large" placeholder="Username" />
+                <Input size="large" name="uname" onChange={this.handleonChange} value={this.state.uname} placeholder="Username" />
               </div>
 
               <div className="isoInputWrapper">
-                <Input size="large" type="password" placeholder="Password" />
+                <Input size="large" name="password" onChange={this.handleonChange} value={this.state.password} type="password" placeholder="Password" />
               </div>
 
               <div className="isoInputWrapper isoLeftRightComponent">

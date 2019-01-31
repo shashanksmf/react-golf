@@ -361,6 +361,14 @@ const routes = [
     path: 'admincommunity/newgroup',
     component: asyncComponent(() => import('../Community_Admin/newGroup.js')),
   },
+  {
+    path: 'admincommunity/viewgroup/*',
+    component: asyncComponent(() => import('../Community_Admin/viewGroup.js')),
+  },
+  {
+    path: 'admincommunity/editgroup/*',
+    component: asyncComponent(() => import('../Community_Admin/editGroup.js')),
+  },
 
 
 
