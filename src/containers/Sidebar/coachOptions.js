@@ -7,17 +7,17 @@ const coachOptions = [
     {
       key: 'adminspiderrankings',
       label: 'Spider Rankings',
-      leftIcon: 'ion-ios-people',
+      leftIcon: 'ion-android-arrow-dropleft-circle',
     },
     {
       key: 'adminsettings',
       label: 'Settings',
-      leftIcon: 'ion-ios-people',
+      leftIcon: 'ion-ios-settings',
     },
     {
       key: 'adminhelp',
       label: 'Help',
-      leftIcon: 'ion-ios-people',
+      leftIcon: 'ion-ios-help-outline',
     },
   ];
 

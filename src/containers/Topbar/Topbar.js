@@ -52,7 +52,7 @@ class Topbar extends Component {
     // return (<div>shashank</div>);
     return isAdmin &&
         (location.pathname.includes('/dashboard/adminspiderrankings')) ?
-        (<Adminspiderrankings redirect={this.redirect}></Adminspiderrankings>) :  (isAdmin ? null :(this.menuClicked))
+        (<Adminspiderrankings url="adminspiderrankings" redirect={this.redirect}></Adminspiderrankings>) :  (isAdmin ? null :(<Adminspiderrankings url="player" redirect={this.redirect}></Adminspiderrankings>))
   }
 
   redirect = (params) => {

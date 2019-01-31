@@ -4,31 +4,31 @@ class Adminspiderrankings extends Component   {
 
   render() {
     return(  <div>
-        <Button onClick={()=>this.props.redirect('/dashboard/adminspiderrankings/scoring')}>
+        <Button onClick={()=>this.props.redirect('/dashboard/'+this.props.url+'/scoring')}>
           Scoring
         </Button>
-        <Button onClick={()=>this.props.redirect('/dashboard/adminspiderrankings/tff')}>
+        <Button onClick={()=>this.props.redirect('/dashboard/'+this.props.url+'/tff')}>
           TFF
         </Button>
-        <Button onClick={()=>this.props.redirect('/dashboard/adminspiderrankings/togreen')}>
+        <Button onClick={()=>this.props.redirect('/dashboard/'+this.props.url+'/togreen')}>
           TO GREEN
         </Button>
-        <Button onClick={()=>this.props.redirect('/dashboard/adminspiderrankings/grs')}>
+        <Button onClick={()=>this.props.redirect('/dashboard/'+this.props.url+'/grs')}>
           GRS
         </Button>
-        <Button onClick={()=>this.props.redirect('/dashboard/adminspiderrankings/putting')}>
+        <Button onClick={()=>this.props.redirect('/dashboard/'+this.props.url+'/putting')}>
           PUTTING
         </Button>
-        <Button onClick={()=>this.props.redirect('/dashboard/adminspiderrankings/sg')}>
+        <Button onClick={()=>this.props.redirect('/dashboard/'+this.props.url+'/sg')}>
           SG
         </Button>
-        <Button onClick={()=>this.props.redirect('/dashboard/adminspiderrankings/proximity')}>
+        <Button onClick={()=>this.props.redirect('/dashboard/'+this.props.url+'/proximity')}>
           PROXIMITY
         </Button>
-        <Button onClick={()=>this.props.redirect('/dashboard/adminspiderrankings/impact')}>
+        <Button onClick={()=>this.props.redirect('/dashboard/'+this.props.url+'/impact')}>
           IMPACT
         </Button>
-        <Button onClick={()=>this.props.redirect('/dashboard/adminspiderrankings/wasted')}>
+        <Button onClick={()=>this.props.redirect('/dashboard/'+this.props.url+'/wasted')}>
           WASTED
         </Button>
       </div>)
