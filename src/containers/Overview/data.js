@@ -2,7 +2,7 @@ import React, { Component } from "react";
 const tableData = {
 
   columns:{
-    "table1":[
+    "data_recollection":[
           {
         title: "Name",
         dataIndex: "name",
@@ -37,7 +37,7 @@ const tableData = {
         dataIndex: "ranking",
         key: "ranking"
       }],
-      "table2":[
+      "spider_focus":[
       {
         title: "Off the tee",
         dataIndex: "off",
@@ -69,7 +69,7 @@ const tableData = {
         key: "scoring"
       }
     ],
-      "table3":[
+      "personal_records":[
         {
         title: "All rounds are 18 holes only (completed)",
         dataIndex: "all",

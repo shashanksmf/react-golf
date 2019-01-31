@@ -26,7 +26,9 @@ class Overview extends Component {
       } = []
     } = this.props;
 
-    console.log("redux spider_focus", spider_focus, personal_records)
+    console.log("redux spider_focus", data_recollection)
+    console.log("redux personal_records", personal_records)
+    console.log("redux data_recollection", data_recollection)
 
     return (
       <Box>
