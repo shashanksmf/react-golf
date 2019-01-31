@@ -7,14 +7,14 @@ import Box from '../../components/utility/box';
 import ContentHolder from '../../components/utility/contentHolder';
 import actions from './../../redux/Friends/actions';
 
-console.log("this action ", actions)
+
 
  class Friends extends Component {
-	// state = {
+	state = {
 	
-	// 	loading: false,
+		loading: false,
 	
-	// };
+	};
 
 	componentDidMount() {
     this.props.getDataFriends();
@@ -33,7 +33,8 @@ console.log("this action ", actions)
       } = []
     } = this.props;
 
-    console.log("redux friends",  data_recollection,)
+    // console.log("redux friends",  data_recollection,)
+    
 		
     const gutter = 0;
 		// const antTable = AntTable.renderTable('sortView');

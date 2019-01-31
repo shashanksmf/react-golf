@@ -1,50 +1,4 @@
-
 import clone from 'clone';
-import React from 'react';
-
-const tableData = {
-
-  columns:{
-    "table1":[
-      {
-        title: "List of selection + filters to generate SPIDER RANKINGS",
-        dataIndex: "title",
-        key: "title"
-      },
-      {
-        title: "",
-        dataIndex: "value",
-        key: "value"
-      },
-    ],
-  },
-
-  dataSource:{
-    "table1":[
-      {
-        key: "1",
-        title: "All rounds",
-        value: "1",
-      },
-      {
-        key: "2",
-        title: "Selected round",
-        value: "2",
-      },
-      {
-        key: "3",
-        title: "Best 5",
-        value: "3",
-      },
-      {
-        key: "4",
-        title: "Worst 5",
-        value: "4",
-      },
-    ],
-  }
-};
-
 const defaultOptions = [
   {
     id: 'disabled',
@@ -126,13 +80,4 @@ const configs = [
     ]
   }
 ];
-
-const rtl = document.getElementsByTagName('html')[0].getAttribute('dir');
-const withDirection = Component => props => {
-  return <Component {...props} data-rtl={rtl} />;
-};
-
-export default withDirection
-export {
-  tableData,configs,rtl
-}
+export default configs;

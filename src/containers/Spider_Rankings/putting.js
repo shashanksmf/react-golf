@@ -9,11 +9,35 @@ import ContentHolder from '../../components/utility/contentHolder';
 import { Row, Col, Icon } from 'antd';
 
 export default class Putting extends Component {
+ 
+  constructor(){
+    super()
+    this.state = { selectedName : ''}
+  
+  }
+
+
+  setRenderInColumns = (columnsData) => {
+    let that = this;
+    columnsData.forEach(item => {
+      item.render = function(record, text) {
+        console.log("record,texst",record,text,item);
+        if(record == text.Name)  {
+           return <span onClick={()=>{ that.setState({ selectedName : record})}} className={that.state.selectedName == record ? 'active' : ''}>{record}</span> 
+        } 
+        return record
+      }
+    })
+    return columnsData
+   }
+   
   render() {
-    const {columns, dataSource} = DATA;
+    const { dataSource,columns} = DATA;
+    
     const rowSelection = {
       onChange: (selectedRowKeys, selectedRows) => {},
     };
+   
     return (
       <LayoutContentWrapper>
       <Box>
@@ -22,9 +46,10 @@ export default class Putting extends Component {
       	<Row >
         <Col md={24} sm={8} xl={8} xs={24}>
           <TableWrapper
+         	  // onRow = {record => this.setState({ selectedName:record.Name })}
             rowKey="key"
             rowSelection={rowSelection}
-            columns={columns}
+            columns={this.setRenderInColumns(columns)}
             bordered={true}
             dataSource={dataSource}
             loading={this.props.isLoading}
@@ -32,23 +57,17 @@ export default class Putting extends Component {
             pagination={{
               // defaultPageSize: 1,
               hideOnSinglePage: true,
-              total: dataSource.length,
-              showTotal: (total, range) => {
-                return `Showing ${range[0]}-${range[1]} of ${
-                  dataSource.length
-                } Results`;
-              },
+             
             }}
           />
           </Col>
 
           <Col md={8} sm={8} xl={8} xs={8}></Col>
 
-          <Col md={24} sm={8} xl={8} xs={24}>
           <TableWrapper
-            rowKey="key"
+            rowKey="key1"
             rowSelection={rowSelection}
-            columns={columns}
+            columns={this.setRenderInColumns(columns)}
             bordered={true}
             dataSource={dataSource}
             loading={this.props.isLoading}
@@ -56,18 +75,235 @@ export default class Putting extends Component {
             pagination={{
               // defaultPageSize: 1,
               hideOnSinglePage: true,
-              total: dataSource.length,
-              showTotal: (total, range) => {
-                return `Showing ${range[0]}-${range[1]} of ${
-                  dataSource.length
-                } Results`;
-              },
+             
             }}
           />
-          </Col>
+         
           </Row>
         </ContentHolder>
       </Box>
+
+            {/* ############################################################## */}
+      <Box>
+        <ContentHolder style={{ marginTop: 0, overflow: 'hidden' }}>
+         
+      	<Row >
+        <Col md={24} sm={8} xl={8} xs={24}>
+          <TableWrapper
+         	  // onRow = {record => this.setState({ selectedName:record.Name })}
+            rowKey="key"
+            rowSelection={rowSelection}
+            columns={this.setRenderInColumns(columns)}
+            bordered={true}
+            dataSource={dataSource}
+            loading={this.props.isLoading}
+            className="isoSimpleTable"
+            pagination={{
+              // defaultPageSize: 1,
+              hideOnSinglePage: true,
+             
+            }}
+          />
+          </Col>
+
+          <Col md={8} sm={8} xl={8} xs={8}></Col>
+
+          <TableWrapper
+            rowKey="key1"
+            rowSelection={rowSelection}
+            columns={this.setRenderInColumns(columns)}
+            bordered={true}
+            dataSource={dataSource}
+            loading={this.props.isLoading}
+            className="isoSimpleTable"
+            pagination={{
+              // defaultPageSize: 1,
+              hideOnSinglePage: true,
+             
+            }}
+          />
+         
+          </Row>
+        </ContentHolder>
+      </Box>
+            
+              {/* ############################################################## */}
+      <Box>
+        <ContentHolder style={{ marginTop: 0, overflow: 'hidden' }}>
+         
+      	<Row >
+        <Col md={24} sm={8} xl={8} xs={24}>
+          <TableWrapper
+         	  // onRow = {record => this.setState({ selectedName:record.Name })}
+            rowKey="key"
+            rowSelection={rowSelection}
+            columns={this.setRenderInColumns(columns)}
+            bordered={true}
+            dataSource={dataSource}
+            loading={this.props.isLoading}
+            className="isoSimpleTable"
+            pagination={{
+              // defaultPageSize: 1,
+              hideOnSinglePage: true,
+             
+            }}
+          />
+          </Col>
+
+          <Col md={8} sm={8} xl={8} xs={8}></Col>
+
+          <TableWrapper
+            rowKey="key1"
+            rowSelection={rowSelection}
+            columns={this.setRenderInColumns(columns)}
+            bordered={true}
+            dataSource={dataSource}
+            loading={this.props.isLoading}
+            className="isoSimpleTable"
+            pagination={{
+              // defaultPageSize: 1,
+              hideOnSinglePage: true,
+             
+            }}
+          />
+         
+          </Row>
+        </ContentHolder>
+      </Box>
+
+        {/* ############################################################## */}
+        <Box>
+        <ContentHolder style={{ marginTop: 0, overflow: 'hidden' }}>
+         
+      	<Row >
+        <Col md={24} sm={8} xl={8} xs={24}>
+          <TableWrapper
+         	  // onRow = {record => this.setState({ selectedName:record.Name })}
+            rowKey="key"
+            rowSelection={rowSelection}
+            columns={this.setRenderInColumns(columns)}
+            bordered={true}
+            dataSource={dataSource}
+            loading={this.props.isLoading}
+            className="isoSimpleTable"
+            pagination={{
+              // defaultPageSize: 1,
+              hideOnSinglePage: true,
+             
+            }}
+          />
+          </Col>
+
+          <Col md={8} sm={8} xl={8} xs={8}></Col>
+
+          <TableWrapper
+            rowKey="key1"
+            rowSelection={rowSelection}
+            columns={this.setRenderInColumns(columns)}
+            bordered={true}
+            dataSource={dataSource}
+            loading={this.props.isLoading}
+            className="isoSimpleTable"
+            pagination={{
+              // defaultPageSize: 1,
+              hideOnSinglePage: true,
+             
+            }}
+          />
+         
+          </Row>
+        </ContentHolder>
+      </Box>
+
+        {/* ############################################################## */}
+        <Box>
+        <ContentHolder style={{ marginTop: 0, overflow: 'hidden' }}>
+         
+      	<Row >
+        <Col md={24} sm={8} xl={8} xs={24}>
+          <TableWrapper
+         	  // onRow = {record => this.setState({ selectedName:record.Name })}
+            rowKey="key"
+            rowSelection={rowSelection}
+            columns={this.setRenderInColumns(columns)}
+            bordered={true}
+            dataSource={dataSource}
+            loading={this.props.isLoading}
+            className="isoSimpleTable"
+            pagination={{
+              // defaultPageSize: 1,
+              hideOnSinglePage: true,
+             
+            }}
+          />
+          </Col>
+
+          <Col md={8} sm={8} xl={8} xs={8}></Col>
+
+          <TableWrapper
+            rowKey="key1"
+            rowSelection={rowSelection}
+            columns={this.setRenderInColumns(columns)}
+            bordered={true}
+            dataSource={dataSource}
+            loading={this.props.isLoading}
+            className="isoSimpleTable"
+            pagination={{
+              // defaultPageSize: 1,
+              hideOnSinglePage: true,
+             
+            }}
+          />
+         
+          </Row>
+        </ContentHolder>
+      </Box>
+
+        {/* ############################################################## */}
+        <Box>
+        <ContentHolder style={{ marginTop: 0, overflow: 'hidden' }}>
+         
+      	<Row >
+        <Col md={24} sm={8} xl={8} xs={24}>
+          <TableWrapper
+         	  // onRow = {record => this.setState({ selectedName:record.Name })}
+            rowKey="key"
+            rowSelection={rowSelection}
+            columns={this.setRenderInColumns(columns)}
+            bordered={true}
+            dataSource={dataSource}
+            loading={this.props.isLoading}
+            className="isoSimpleTable"
+            pagination={{
+              // defaultPageSize: 1,
+              hideOnSinglePage: true,
+             
+            }}
+          />
+          </Col>
+
+          <Col md={8} sm={8} xl={8} xs={8}></Col>
+
+          <TableWrapper
+            rowKey="key1"
+            rowSelection={rowSelection}
+            columns={this.setRenderInColumns(columns)}
+            bordered={true}
+            dataSource={dataSource}
+            loading={this.props.isLoading}
+            className="isoSimpleTable"
+            pagination={{
+              // defaultPageSize: 1,
+              hideOnSinglePage: true,
+             
+            }}
+          />
+         
+          </Row>
+        </ContentHolder>
+      </Box>
+
+      
     </LayoutContentWrapper>
     );
   }

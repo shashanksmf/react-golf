@@ -42,11 +42,11 @@ class Invoices extends Component {
   };
   componentDidMount() {
 
-    this.props.getDataSetting();
-    // const { initialInvoices, initData } = this.props;
-    // if (!initialInvoices) {
-    //   initData();
-    // }
+    //this.props.getDataSetting();
+    const { initialInvoices, initData } = this.props;
+    if (!initialInvoices) {
+      initData();
+    }
   }
 
 
@@ -225,7 +225,7 @@ class Invoices extends Component {
           </div>
 
           <CardWrapper title="Invoices">
-            {/* {invoices.length === 0 ? (
+            {invoices.length === 0 ? (
               <HelperText text="No Invoices" />
             ) : (
               <div className="isoInvoiceTable">
@@ -249,7 +249,7 @@ class Invoices extends Component {
                   />
                 </Scrollbars>
               </div>
-            )} */}
+            )}
           </CardWrapper>
         </Box>
       </LayoutWrapper>
@@ -258,20 +258,20 @@ class Invoices extends Component {
 }
 
 
-const mapStateToProps = state => {
-  return state;
-};
+// const mapStateToProps = state => {
+//   return state;
+// };
 
 
-export default connect(mapStateToProps, actions)(Invoices);
+// export default connect(mapStateToProps, actions)(Invoices);
 
 
-// function mapStateToProps(state) {
-//   return {
-//     ...state.Invoices,
-//   };
-// }
-// export default connect(
-//   mapStateToProps,
-//   invoiceActions
-// )(Invoices);
+function mapStateToProps(state) {
+  return {
+    ...state.Invoices,
+  };
+}
+export default connect(
+  mapStateToProps,
+  invoiceActions
+)(Invoices);
