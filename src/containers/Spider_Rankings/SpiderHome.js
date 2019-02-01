@@ -21,10 +21,12 @@ import Dropdown, {
 } from '../../components/uielements/dropdown';
 import Button from '../../components/uielements/button';
 import { rtl } from '../../settings/withDirection';
+import Select, { SelectOption } from '../../components/uielements/select';
+import basicStyle from '../../settings/basicStyle';
 
 export default class SpiderHome extends Component {
 
-  
+
 
   state = {
 		slope: 'all',
@@ -32,6 +34,32 @@ export default class SpiderHome extends Component {
 		airspeed: 'all',
 		loading: false,
 		iconLoading: false,
+    srounds:"stable",
+    qrounds:"qtable",
+    dataSource:DATA.dataSource
+	};
+
+  handleSelectedChange = e => {
+		this.setState({ srounds: e });
+    var arr;
+    if(e==1){
+      arr=DATA.dataSource.sort(function(a,b) {
+        return b.Score - a.Score;
+      });
+    }
+    else if (e==2) {
+      arr=DATA.dataSource.sort(function(a,b) {
+        return a.Score - b.Score;
+      });
+    }
+    else {
+      arr=DATA.dataSource;
+    }
+    arr=arr.slice(0,5);
+    this.setState({dataSource:arr});
+	};
+  handleQualifyingChange = e => {
+		this.setState({ qrounds: e });
 	};
 
   handleSlopeChange = e => {
@@ -44,24 +72,33 @@ export default class SpiderHome extends Component {
     this.setState({ airspeed: e.target.value });
   };
   render() {
+    const srounds= this.state.srounds;
+    const qrounds= this.state.qrounds;
+    const { rowStyle, colStyle } = basicStyle;
 
-    const dicClicked = (
-      <DropdownMenu onClick={this.handleMenuClickToLink}>
-        <MenuItem key="1">Selected round </MenuItem>
-        <MenuItem key="2"> Best 5 </MenuItem>
-        <MenuItem key="3"> Worst 5</MenuItem>
-        <MenuItem key="4"> Competition rounds</MenuItem>
-        <MenuItem key="5"> Practice rounds</MenuItem>
-        
-      </DropdownMenu>
+    const sClicked = (
+      <Select
+				defaultValue={srounds}
+				onChange={this.handleSelectedChange}
+				style={{ width: '100%' }}
+			>
+				<SelectOption value="stable" disabled={true}>Select Round</SelectOption>
+				<SelectOption value="1"> Best 5 </SelectOption>
+				<SelectOption value="2"> Worst 5</SelectOption>
+				<SelectOption value="3"> Competition rounds</SelectOption>
+				<SelectOption value="4"> Practice rounds</SelectOption>
+			</Select>
     );
 
-    const langClicked = (
-      <DropdownMenu onClick={this.handleMenuClickToLink}>
-        <MenuItem key="1">option</MenuItem>
-     
-        
-      </DropdownMenu>
+    const qClicked = (
+      <Select
+				defaultValue={qrounds}
+				onChange={this.handleQualifyingChange}
+				style={{ width: '100%' }}
+			>
+				<SelectOption value="qtable" disabled={true}>Qualifying rounds</SelectOption>
+				<SelectOption value="1"> options </SelectOption>
+			</Select>
     );
 
     const iconImg = {height:'25px','margin':'0 5px'}
@@ -76,90 +113,60 @@ export default class SpiderHome extends Component {
       onChange: (selectedRowKeys, selectedRows) => {},
     };
 
-   
+
     return (
       <Box title="">
 
         <Box title="">
-        <ContentHolder style={mt0}>
-              	<Col md={24} sm={2} xl={2} xs={24}>
-            
-              	</Col>
-              	<Col md={24} sm={8} xl={8} xs={24}>
-                <img src="/images/icons/golf.svg" style={iconImg} />
-                <RadioGroup value={slope} onChange={this.handleSlopeChange}>
-                  <RadioButton value="all">All</RadioButton>
-                  <RadioButton value="slow">Slow</RadioButton>
-                  <RadioButton value="med">Med</RadioButton>
-                  <RadioButton value="fast">Fast</RadioButton>
-                </RadioGroup>
-                </Col>
-                <Col md={24} sm={6} xl={6} xs={24}>
-                <img src="/images/icons/wind.svg" style={iconImg} />
-                <RadioGroup value={weather} onChange={this.handleWeatherChange}>
-                  <RadioButton value="all">All</RadioButton>
-                  <RadioButton value="norain">No Rain</RadioButton>
-                  <RadioButton value="rain">Rain</RadioButton>
-                </RadioGroup>
-                 </Col>
-                <Col md={24} sm={8} xl={8} xs={24}>
-                <img src="/images/icons/air-sock.svg" style={iconImg} />
-                <RadioGroup value={airspeed} onChange={this.handleAirspeedChange}>
-                  <RadioButton value="all">Low</RadioButton>
-                  <RadioButton value="med">Med.</RadioButton>
-                  <RadioButton value="strong">Strong</RadioButton>
-                </RadioGroup>
-                 </Col>
-              </ContentHolder>
-              </Box>
-        <div>
-        <Box title="">
-        <div className="isoInvoiceTableBtn">
-            
-              
-                
-            <Dropdown overlay={dicClicked}>
-            <Button
-              style={{
-                margin: rtl === 'rtl' ? '0 8px 0 0' : '0 0 0 8px',
-              }}
-            >
-             All rounds <Icon type="down" />
-            </Button>
-          </Dropdown>
+          <ContentHolder style={mt0}>
+                	<Col md={24} sm={2} xl={2} xs={24}>
 
-          <Dropdown overlay={langClicked}>
-            <Button
-              style={{
-                margin: rtl === 'rtl' ? '0 8px 0 0' : '0 0 0 8px',
-              }}
-            >
-              Qualifying rounds  <Icon type="down" />
-            </Button>
-          </Dropdown>
-          
-        </div>
+                	</Col>
+                	<Col md={24} sm={8} xl={8} xs={24}>
+                  <img src="/images/icons/golf.svg" style={iconImg} />
+                  <RadioGroup value={slope} onChange={this.handleSlopeChange}>
+                    <RadioButton value="all">All</RadioButton>
+                    <RadioButton value="slow">Slow</RadioButton>
+                    <RadioButton value="med">Med</RadioButton>
+                    <RadioButton value="fast">Fast</RadioButton>
+                  </RadioGroup>
+                  </Col>
+                  <Col md={24} sm={6} xl={6} xs={24}>
+                  <img src="/images/icons/wind.svg" style={iconImg} />
+                  <RadioGroup value={weather} onChange={this.handleWeatherChange}>
+                    <RadioButton value="all">All</RadioButton>
+                    <RadioButton value="norain">No Rain</RadioButton>
+                    <RadioButton value="rain">Rain</RadioButton>
+                  </RadioGroup>
+                   </Col>
+                  <Col md={24} sm={8} xl={8} xs={24}>
+                  <img src="/images/icons/air-sock.svg" style={iconImg} />
+                  <RadioGroup value={airspeed} onChange={this.handleAirspeedChange}>
+                    <RadioButton value="all">Low</RadioButton>
+                    <RadioButton value="med">Med.</RadioButton>
+                    <RadioButton value="strong">Strong</RadioButton>
+                  </RadioGroup>
+                   </Col>
+          </ContentHolder>
         </Box>
 
+        <div>
+          <Box title="">
+            <div className="isoInvoiceTableBtn">
+              <Col md={12} sm={24} xs={24} xl={12} style={colStyle}>
+                  {sClicked}
+              </Col>
+              <Col md={12} sm={24} xs={24} xl={12} style={colStyle}>
+                  {qClicked}
+              </Col>
+            </div>
+          </Box>
 
         <Table
-            rowKey="key"
-            rowSelection={rowSelection}
             columns={columns}
             bordered={true}
-            dataSource={dataSource}
-            loading={this.props.isLoading}
-            className="isoSimpleTable"
-            pagination={{
-              // defaultPageSize: 1,
-              hideOnSinglePage: true,
-              total: dataSource.length,
-              showTotal: (total, range) => {
-                return `Showing ${range[0]}-${range[1]} of ${
-                  dataSource.length
-                } Results`;
-              },
-            }}
+            dataSource={this.state.dataSource}
+            pagination= {false}
           />
           {/* <Table
             columns={tableData.columns.table1}

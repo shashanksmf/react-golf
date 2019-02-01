@@ -1,4 +1,3 @@
-
 import clone from 'clone';
 import React from 'react';
 
