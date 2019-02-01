@@ -369,7 +369,11 @@ const routes = [
     path: 'admincommunity/editgroup/*',
     component: asyncComponent(() => import('../Community_Admin/editGroup.js')),
   },
-
+  {
+    path: 'adminprofile',
+    component: asyncComponent(() => import('../Profile/profile.js')),
+  },
+  
 
 
   ...customRoutes,

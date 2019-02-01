@@ -19,6 +19,11 @@ const coachOptions = [
       label: 'Help',
       leftIcon: 'ion-ios-help-outline',
     },
+    {
+      key: 'adminprofile',
+      label: 'Profile',
+      leftIcon: 'ion-ios-help-outline',
+    },
   ];
 
   export default coachOptions;
