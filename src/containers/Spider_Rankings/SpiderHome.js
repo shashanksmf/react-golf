@@ -1,7 +1,9 @@
 import { Table } from "antd";
 import React, { Component } from "react";
+import { Radar } from "react-chartjs-2";
 import Box from '../../components/utility/box';
 import { tableData } from './config';
+import { spiderData } from "./spiderconfig";
 import './spider.css'
 
 import TableWrapper from '../Tables/antTables/antTable.style';
@@ -23,6 +25,9 @@ import Select, { SelectOption } from '../../components/uielements/select';
 import basicStyle from '../../settings/basicStyle';
 import Filters from './filters'
 import DATA from './data.js';
+import Checkbox, {
+  CheckboxGroup
+} from '../../components/uielements/checkbox';
 
 export default class SpiderHome extends Component {
 
@@ -32,7 +37,8 @@ export default class SpiderHome extends Component {
 		airspeed: 'all',
 		loading: false,
 		iconLoading: false,
-    dataSource:DATA.dataSource
+    dataSource:DATA.dataSource,
+    hide:false
 	};
 
   handleSlopeChange = e => {
@@ -52,6 +58,10 @@ export default class SpiderHome extends Component {
     console.log("dataChange",data);
     this.setState({dataSource:data});
   }
+  handleOnCheckChange = checkedValues => {
+    this.setState({hide:checkedValues.target.checked});
+  };
+
   render() {
     const { rowStyle, colStyle } = basicStyle;
 
@@ -95,7 +105,8 @@ export default class SpiderHome extends Component {
                   <Col md={24} sm={8} xl={8} xs={24}>
                   <img src="/images/icons/air-sock.svg" style={iconImg} />
                   <RadioGroup value={airspeed} onChange={this.handleAirspeedChange}>
-                    <RadioButton value="all">Low</RadioButton>
+                    <RadioButton value="all">All</RadioButton>
+                    <RadioButton value="low">Low</RadioButton>
                     <RadioButton value="med">Med.</RadioButton>
                     <RadioButton value="strong">Strong</RadioButton>
                   </RadioGroup>
@@ -104,16 +115,20 @@ export default class SpiderHome extends Component {
         </Box>
 
         <div>
-        <Filters dataChange={this.dataChange} tabledataSource={this.tabledataSource}/>
-
-        <Table
-            columns={columns}
-            bordered={true}
-            dataSource={this.state.dataSource}
-            pagination= {false}
-          />
+          <Checkbox onChange={this.handleOnCheckChange} style={{ height:'50px', fontSize:'25px' }}>Hide</Checkbox>
+          {this.state.hide?"":
+          <>
+            <Filters dataChange={this.dataChange} tabledataSource={this.tabledataSource}/>
+            <Table
+                columns={columns}
+                bordered={true}
+                dataSource={this.state.dataSource}
+                pagination= {false}
+              />
+              </>
+            }
         </div>
-
+        <h2> Spider Grid </h2> <Radar data={spiderData} height={130} />
       </Box>
     );
   }

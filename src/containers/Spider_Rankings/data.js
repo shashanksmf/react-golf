@@ -1,5 +1,7 @@
-
-
+import React, { Component } from "react";
+import Checkbox, {
+  CheckboxGroup
+} from '../../components/uielements/checkbox';
   let dataSource = [
     {
       Name: 'Ding Golfer',
@@ -26,12 +28,12 @@
       Score: "19",
     },
   ];
-
   let columns = [
     {
     title: 'Name',
     dataIndex: 'Name',
     key: 'Name',
+    render: text =><Checkbox>{text}</Checkbox>,
   },
   {
     title: 'Score',
