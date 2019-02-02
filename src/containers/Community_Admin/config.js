@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Checkbox, {
   CheckboxGroup
 } from '../../components/uielements/checkbox';
+import Button from '../../components/uielements/button';
 
 var tableData = {
   columns:{
@@ -72,7 +73,7 @@ var tableData = {
         key: "groupname",
         render: (text, record) => {
           return (
-            <Checkbox></Checkbox>
+            <Button type="primary">REMOVE</Button>
           );
         }
       },

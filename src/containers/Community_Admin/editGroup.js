@@ -92,7 +92,7 @@ export default class editGroup extends Component {
             pagination={false}
           />
         </div>
-        <Button type="primary" style={margin} onClick={this.showModal}>Add to Group</Button>
+        <Button type="primary" style={margin} onClick={this.showModal}>Add New Student</Button>
 
       </Box>
       </div>
