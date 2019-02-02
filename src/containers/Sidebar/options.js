@@ -20,26 +20,26 @@ const options = [
     label: 'Community',
     leftIcon: 'ion-ios-people',
   },
-  {
-    key: 'settings',
-    label: 'sidebar.settings',
-    leftIcon: 'ion-ios-settings',
-  },
-  {
-    key: 'help',
-    label: 'sidebar.help',
-    leftIcon: 'ion-ios-help-outline',
-  },
+  // {
+  //   key: 'settings',
+  //   label: 'sidebar.settings',
+  //   leftIcon: 'ion-ios-settings',
+  // },
+  // {
+  //   key: 'help',
+  //   label: 'sidebar.help',
+  //   leftIcon: 'ion-ios-help-outline',
+  // },
   // {
   //   key: 'friends',
   //   label: 'sidebar.friends',
   //   leftIcon: 'ion-ios-people',
   // },
-  {
-    key: 'profile',
-    label: 'Profile',
-    leftIcon: 'ion-person',
-  },
+  // {
+  //   key: 'profile',
+  //   label: 'Profile',
+  //   leftIcon: 'ion-person',
+  // },
 
   {
     key: 'Putting',

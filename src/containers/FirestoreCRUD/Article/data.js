@@ -192,7 +192,7 @@
     key: 'tourMembers',
   },
   {
-    title: 'last 10 rounds',
+    title: 'last 5 rounds',
     dataIndex: 'last10rounds',
     key: 'last10rounds',
   },

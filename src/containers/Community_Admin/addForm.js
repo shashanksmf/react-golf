@@ -7,6 +7,25 @@ import Input, {
 } from '../../components/uielements/input';
 import Box from '../../components/utility/box';
 
+import LayoutContentWrapper from '../../components/utility/layoutWrapper.js';
+import {
+  ActionBtn,
+  Fieldset,
+  Form,
+  Label,
+  TitleWrapper,
+  ButtonHolders,
+  ActionWrapper,
+  ComponentTitle,
+  TableWrapper,
+  StatusTag,
+} from './froms.style';
+import Select, {
+  SelectOption as Option,
+} from '../../components/uielements/select';
+import clone from 'clone';
+
+
 export default class extends Component {
   componentDidMount() {
     setTimeout(() => {
@@ -17,58 +36,46 @@ export default class extends Component {
   }
   render() {
     return (
-      <Box>
-      <ContentHolder>
-      <Input placeholder="Basic usage" />
+              <LayoutContentWrapper>
+                <Box>
+                  <ContentHolder style={{ marginTop: 0, overflow: 'hidden' }}>
+                      <Form>
+                        <Fieldset>
+                          <Label>Full Name</Label>
+                          <Input
+                            label="Full Name"
+                            placeholder="Enter Full Namwe"
+                            />
+                        </Fieldset>
 
-      <Input placeholder="Basic usage" />
+                        <Fieldset>
+                          <Label>Handicap</Label>
+                          <Select placeholder="Is Handicap" >
+                            <Option value="yes">Yes</Option>
+                            <Option value="no">No</Option>
+                          </Select>
+                        </Fieldset>
 
-      <Input placeholder="Basic usage" />
+                        <Fieldset>
+                          <Label>Rounds</Label>
+                          <Input
+                            label="Rounds"
+                            placeholder="Enter Rounds"
+                            />
+                        </Fieldset>
 
-      <Input placeholder="Basic usage" />
-    </ContentHolder>
-    </Box>
+                        <Fieldset>
+                          <Label>Scoring Average</Label>
+                          <Input
+                            label="Scoring Average"
+                            placeholder="Enter Scoring Average"
+                            />
+                        </Fieldset>
+                      </Form>
+                    </ContentHolder>
+                  </Box>
+                </LayoutContentWrapper>
+      
     );
   }
 }
-
-
-  // <div className="isoContactCard sc-jzJRlG jaMgbw ">
-    
-      //     <div className="isoContactInfoWrapper edit-contact-wrapper">
-            
-      //       <div className="editcontact-field">
-      //           <label>First Name</label>
-      //           <input type="text" value="shashank" onChange={this.handleChange}  />
-      //       </div>
-      //       <div className="editcontact-field">
-      //           <label>Last Name</label>
-      //           <input type="text" value="Jaiswal" onChange={this.handleChange}  />
-      //       </div>
-      //       <div className="editcontact-field">
-      //           <label>First Name</label>
-      //           <input type="text" value="shashank@gmail.com" onChange={this.handleChange}  />
-      //       </div>
-      //       <div className="editcontact-field">
-      //           <label>First Name</label>
-      //           MALE<input type="radio" name="gender" value="male"  onChange={this.handleChange} />
-      //           Female<input type="radio" name="gender" value="female"  onChange={this.handleChange} />
-      //       </div>
-      //       <div className="editcontact-field">
-      //           <label>SG Handicap</label>
-      //           Yes<input type="radio" name="handicap" value="Yes"  onChange={this.handleChange}/>
-      //           No<input type="radio" name="handicap" value="No"  onChange={this.handleChange}/>
-      //       </div>
-         
-      //       <div className="editcontact-field">
-      //           <label>Status </label>
-      //          <select  onChange={this.handleChange}>
-      //               <option value="grapefruit">AMATEUR</option>
-      //               <option value="lime">PRO</option>
-      //               <option value="coconut">COACH</option>
-      //               <option value="mango">TEAM COACH</option>
-      //               <option value="mango">INSTITUTIONS</option>
-      //           </select>
-      //       </div>
-      //   </div>
-      //   </div>

@@ -15,6 +15,8 @@ import TableWrapper from '../Tables/antTables/antTable.style';
 import { rtl } from '../../settings/withDirection';
 import { Icon, Row, Col } from 'antd';
 import tableData from './data.js';
+import Filters from './filters'
+
 
 import Dropdown, {
   DropdownButtons,
@@ -140,22 +142,6 @@ class Invoices extends Component {
 
     console.log("setting redux data", data_recollection)
 
-    const dicClicked = (
-      <DropdownMenu onClick={this.handleMenuClickToLink}>
-        <MenuItem key="1">Yeards</MenuItem>
-        <MenuItem key="2">Meters </MenuItem>
-        
-      </DropdownMenu>
-    );
-
-    const langClicked = (
-      <DropdownMenu onClick={this.handleMenuClickToLink}>
-        <MenuItem key="1">English</MenuItem>
-        <MenuItem key="2">French </MenuItem>
-        
-      </DropdownMenu>
-    );
-
     
    const { match, invoices, deleteInvoice } = this.props;
     const { selected } = this.state;
@@ -198,31 +184,8 @@ class Invoices extends Component {
           <IntlMessages id="sidebar.invoice" />
         </PageHeader>
         <Box>
-          <div className="isoInvoiceTableBtn">
-            
-              
-                
-              <Dropdown overlay={dicClicked}>
-              <Button
-                style={{
-                  margin: rtl === 'rtl' ? '0 8px 0 0' : '0 0 0 8px',
-                }}
-              >
-                Distance measurement  <Icon type="down" />
-              </Button>
-            </Dropdown>
-
-            <Dropdown overlay={langClicked}>
-              <Button
-                style={{
-                  margin: rtl === 'rtl' ? '0 8px 0 0' : '0 0 0 8px',
-                }}
-              >
-                Language <Icon type="down" />
-              </Button>
-            </Dropdown>
-            
-          </div>
+        <Filters dataChange={this.dataChange} tabledataSource={this.tabledataSource}/>
+        
 
           <CardWrapper title="Invoices">
             {invoices.length === 0 ? (

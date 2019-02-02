@@ -5,6 +5,8 @@ import IntlMessages from '../../components/utility/intlMessages';
 import userpic from '../../image/user1.png';
 import authAction from '../../redux/auth/actions';
 import TopbarDropdownWrapper from './topbarDropdown.style';
+import { Link } from 'react-router-dom';
+
 
 const { logout } = authAction;
 
@@ -27,15 +29,19 @@ class TopbarUser extends Component {
   render() {
     const content = (
       <TopbarDropdownWrapper className="isoUserDropdown">
-        <a className="isoDropdownLink" href="# ">
+         <Link to="/dashboard/profile" className="isoDropdownLink">
+          {"Profile"}
+        </Link>
+
+        <Link to="/dashboard/settings" className="isoDropdownLink">
           <IntlMessages id="themeSwitcher.settings" />
-        </a>
-        <a className="isoDropdownLink" href="# ">
-          <IntlMessages id="sidebar.feedback" />
-        </a>
-        <a className="isoDropdownLink" href="# ">
+        </Link>
+        <Link to="/dashboard/adminsettings" className="isoDropdownLink">
+          {"Change password"}
+        </Link>
+        <Link to="/dashboard/help" className="isoDropdownLink">
           <IntlMessages id="topbar.help" />
-        </a>
+        </Link>
         <a className="isoDropdownLink" onClick={this.props.logout} href="# ">
           <IntlMessages id="topbar.logout" />
         </a>

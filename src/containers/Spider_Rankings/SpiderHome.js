@@ -79,12 +79,13 @@ export default class SpiderHome extends Component {
 
     return (
       <Box title="">
+           <Checkbox onChange={this.handleOnCheckChange} style={{ height:'50px', fontSize:'25px' }}>Hide</Checkbox>
+           {this.state.hide?"":
+          <div>
 
         <Box title="">
           <ContentHolder style={mt0}>
-                	<Col md={24} sm={2} xl={2} xs={24}>
-
-                	</Col>
+               
                 	<Col md={24} sm={8} xl={8} xs={24}>
                   <img src="/images/icons/golf.svg" style={iconImg} />
                   <RadioGroup value={slope} onChange={this.handleSlopeChange}>
@@ -114,10 +115,9 @@ export default class SpiderHome extends Component {
           </ContentHolder>
         </Box>
 
-        <div>
-          <Checkbox onChange={this.handleOnCheckChange} style={{ height:'50px', fontSize:'25px' }}>Hide</Checkbox>
-          {this.state.hide?"":
-          <>
+       
+         
+          
             <Filters dataChange={this.dataChange} tabledataSource={this.tabledataSource}/>
             <Table
                 columns={columns}
@@ -125,9 +125,9 @@ export default class SpiderHome extends Component {
                 dataSource={this.state.dataSource}
                 pagination= {false}
               />
-              </>
+              </div>
             }
-        </div>
+       
         <h2> Spider Grid </h2> <Radar data={spiderData} height={130} />
       </Box>
     );

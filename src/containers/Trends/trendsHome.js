@@ -89,6 +89,7 @@ class Trends extends Component {
 					<MenuItem key="8">Official Fairways Vs. Field</MenuItem>
 	      </DropdownMenu>
 			);
+
 		const firstGraphDD = (
 			<Select
 				defaultValue={firstGraphVal}
@@ -96,14 +97,21 @@ class Trends extends Component {
 				style={{ width: '100%' }}
 			>
 				<SelectOption value="firstgraph" disabled={true}>First Graph</SelectOption>
-				<SelectOption value="1">Waggled Stroke Gained Total</SelectOption>
-				<SelectOption value="2">Waggled Stroke Gained driving</SelectOption>
-				<SelectOption value="3">Waggled Stroke Gained Approch Play</SelectOption>
-				<SelectOption value="4">Waggled Stroke Gained Short Game</SelectOption>
-				<SelectOption value="5">Waggled Stroke Gained Putting</SelectOption>
-				<SelectOption value="6">Official Stroke Vs. Field</SelectOption>
-				<SelectOption value="7">Official GIR Vs. Field</SelectOption>
-				<SelectOption value="8">Official Fairways Vs. Field</SelectOption>
+				<SelectOption value="1">Spider Hcp</SelectOption>
+				<SelectOption value="2">Stroke</SelectOption>
+				<SelectOption value="3">Fairways</SelectOption>
+				<SelectOption value="4">GIR</SelectOption>
+				<SelectOption value="5">Putts</SelectOption>
+				<SelectOption value="6">Pair 3 averages</SelectOption>
+				<SelectOption value="7">Pair 4 averages</SelectOption>
+				<SelectOption value="8">Pair 5 averages</SelectOption>
+				<SelectOption value="8">% Birdie converstion</SelectOption>
+				<SelectOption value="8">% Pair converstion</SelectOption>
+				<SelectOption value="8">Greenside Dispersion</SelectOption>
+				<SelectOption value="8">Wasted Shots</SelectOption>
+				<SelectOption value="8">Quality %</SelectOption>
+				<SelectOption value="8">Green Reading</SelectOption>
+				<SelectOption value="8">Stroke Gained</SelectOption>
 			</Select>
 		)
 		const secondGraphDD = (
@@ -117,8 +125,8 @@ class Trends extends Component {
 			<SelectOption value="2">SG tee to green</SelectOption>
 			<SelectOption value="3">SG off the tee</SelectOption>
 			<SelectOption value="4">SG lay ups</SelectOption>
-			<SelectOption value="5">SG Greenside</SelectOption>
-			<SelectOption value="6">SG Putting</SelectOption>
+			<SelectOption value="5">SG To Green</SelectOption>
+			<SelectOption value="6">SG Greenside</SelectOption>
 			</Select>
 		)
 		console.log("secondGraphVal",secondGraphVal);
@@ -128,21 +136,28 @@ class Trends extends Component {
 	         				 <Col md={24} sm={24} xs={24} style={colStyle}>
 	            				<Box title="">
 	              					<ContentHolder style={mt0}>
-														<Col md={12} sm={24} xs={24} xl={12} style={colStyle}>
+														<Col md={12} sm={8} xs={8} xl={8} style={colStyle}>
 																{firstGraphDD}
 														</Col>
-														<Col md={12} sm={24} xs={24} xl={12} style={colStyle}>
+														<Col md={12} sm={8} xs={8} xl={8} style={colStyle}>
 																{secondGraphDD}
 														</Col>
-														<Col md={24} sm={24} xs={24} xl={24} style={colStyle}>
+														<Col md={6} sm={4} xs={4} xl={4} style={colStyle}>
+           														 <input type="date" name="from_date" style={{ width: '100%', height:'33px' }}/>
+          												</Col>
+														  <Col md={6} sm={4} xs={4} xl={4} style={colStyle}>
+           														 <input type="date" name="to_date" style={{ width: '100%', height:'33px' }}/>
+          												</Col>
+														{/* <Col md={24} sm={24} xs={24} xl={24} style={colStyle}>
 															<MainGraph />
-														</Col>
-														<Col md={12} sm={24} xs={24} xl={12} style={colStyle}>
+														</Col> */}
+														<Col md={12} sm={24} xs={24} xl={24} style={colStyle}>
 															<BarChart val={firstGraphVal}/>
 														</Col>
-														<Col md={12} sm={24} xs={24} xl={12} style={colStyle}>
+														<Col md={12} sm={24} xs={24} xl={24} style={colStyle}>
 															<BarChart val={secondGraphVal}/>
 														</Col>
+														
 													</ContentHolder>
 	              				</Box>
 	              		</Col>

@@ -11,8 +11,7 @@ const tableData = {
           return (
             <div className="text-img-wrapper">
               <span>{record.name}</span>
-              <br />
-              <img src={record.image} />
+             
             </div>
           );
         }

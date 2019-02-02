@@ -102,9 +102,9 @@ class Articles extends Component {
         <Box>
           <ContentHolder style={{ marginTop: 0, overflow: 'hidden' }}>
             <TitleWrapper>
-              <ComponentTitle>Articles</ComponentTitle>
+              <ComponentTitle>Community</ComponentTitle>
 
-              <ButtonHolders>
+              {/* <ButtonHolders>
                 <Link to="community">
                 <ActionBtn type="danger" >Students</ActionBtn>
                 </Link>
@@ -112,13 +112,13 @@ class Articles extends Component {
                 <Link  to="communityFriends" >
                   <ActionBtn type="primary">Friends</ActionBtn>
                 </Link>
-              </ButtonHolders>
+              </ButtonHolders> */}
             </TitleWrapper>
 
           
             <TableWrapper
               rowKey="key"
-              rowSelection={rowSelection}
+        
               columns={columns}
               bordered={true}
               dataSource={dataSource}

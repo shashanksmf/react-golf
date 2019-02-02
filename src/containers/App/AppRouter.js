@@ -315,7 +315,7 @@ const routes = [
   },
   {
     path: 'adminsettings',
-    component: asyncComponent(() => import('../Trends/trendsHome.js')),
+    component: asyncComponent(() => import('../admin_setting/resetPassword.js')),
   },
   {
     path: 'adminhelp',

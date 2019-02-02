@@ -167,7 +167,7 @@ class Sidebar extends Component {
                 this.getMenuItem({ submenuStyle, submenuColor, singleOption })
               )}
               {/* Demo Menu */}
-
+             
             </Menu>
           </Scrollbars>
         </Sider>
