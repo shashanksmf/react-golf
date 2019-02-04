@@ -28,7 +28,7 @@ const stripTrailingSlash = str => {
   }
   return str;
 };
-console.log("options");
+//console.log("options");
 var sidebarOptions;
 class Sidebar extends Component {
   constructor(props) {

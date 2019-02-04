@@ -11,7 +11,7 @@ const coachOptions = [
     },
     {
       key: 'adminsettings',
-      label: 'Settings',
+      label: 'Change Password',
       leftIcon: 'ion-ios-settings',
     },
     {

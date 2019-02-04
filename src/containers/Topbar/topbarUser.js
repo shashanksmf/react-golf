@@ -18,7 +18,9 @@ class TopbarUser extends Component {
     this.state = {
       visible: false,
     };
+  
   }
+  
   hide() {
     this.setState({ visible: false });
   }
@@ -27,16 +29,19 @@ class TopbarUser extends Component {
   }
 
   render() {
+    console.log("topbar user",this.props)
     const content = (
       <TopbarDropdownWrapper className="isoUserDropdown">
-         <Link to="/dashboard/profile" className="isoDropdownLink">
+      
+         <Link to="/dashboard/profile" className="isoDropdownLink" hidden={this.props.isAdmin || false}>
+         
           {"Profile"}
         </Link>
 
-        <Link to="/dashboard/settings" className="isoDropdownLink">
+        <Link to="/dashboard/settings" className="isoDropdownLink" hidden={this.props.isAdmin || false}>
           <IntlMessages id="themeSwitcher.settings" />
         </Link>
-        <Link to="/dashboard/adminsettings" className="isoDropdownLink">
+        <Link to="/dashboard/adminsettings" className="isoDropdownLink" hidden={this.props.isAdmin || false} >
           {"Change password"}
         </Link>
         <Link to="/dashboard/help" className="isoDropdownLink">
@@ -66,6 +71,6 @@ class TopbarUser extends Component {
   }
 }
 export default connect(
-  null,
+  state => ({isAdmin:state.Auth.isAdmin || false}),
   { logout }
 )(TopbarUser);
